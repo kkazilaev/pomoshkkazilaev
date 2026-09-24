@@ -1,0 +1,27 @@
+{
+  "title": "Классы и ООП",
+  "items": [
+    { "code": "class Name:", "desc": "Определение класса", "detail": "Создаёт новый класс." },
+    { "code": "def __init__(self):", "desc": "Конструктор", "detail": "Вызывается при создании объекта." },
+    { "code": "self", "desc": "Ссылка на объект", "detail": "Первый параметр методов." },
+    { "code": "class Child(Parent):", "desc": "Наследование", "detail": "Дочерний класс наследует атрибуты родителя." },
+    { "code": "super()", "desc": "Родительский класс", "detail": "super().__init__() вызывает конструктор родителя." },
+    { "code": "classmethod", "desc": "Метод класса", "detail": "Первый параметр cls. Вызывается через класс." },
+    { "code": "staticmethod", "desc": "Статический метод", "detail": "Без self и cls. Обычная функция внутри класса." },
+    { "code": "property", "desc": "Свойство", "detail": "Превращает метод в атрибут. @property, @x.setter." },
+    { "code": "__str__", "desc": "Строковое представление", "detail": "Для пользователя: print(obj)." },
+    { "code": "__repr__", "desc": "Для отладки", "detail": "repr(obj). Идеально: eval(repr(obj)) == obj." },
+    { "code": "__eq__", "desc": "Сравнение ==", "detail": "Определяет поведение ==." },
+    { "code": "__lt__", "desc": "Сравнение <", "detail": "Для сортировки и сравнений." },
+    { "code": "__len__", "desc": "Длина", "detail": "len(obj)." },
+    { "code": "__getitem__", "desc": "Индексация", "detail": "obj[i]. Также __setitem__, __delitem__." },
+    { "code": "__iter__", "desc": "Итерация", "detail": "for x in obj: ..." },
+    { "code": "__next__", "desc": "Следующий элемент", "detail": "next(obj)." },
+    { "code": "__call__", "desc": "Вызов объекта", "detail": "obj() работает как функция." },
+    { "code": "__enter__ / __exit__", "desc": "Контекстный менеджер", "detail": "with obj: ..." },
+    { "code": "@dataclass", "desc": "Датакласс", "detail": "Автоматически создаёт __init__, __repr__, __eq__." },
+    { "code": "__slots__", "desc": "Ограничение атрибутов", "detail": "Экономит память, ускоряет доступ." },
+    { "code": "ABC / abstractmethod", "desc": "Абстрактные классы", "detail": "from abc import ABC, abstractmethod." },
+    { "code": "MRO", "desc": "Порядок разрешения методов", "detail": "Name.__mro__ показывает порядок поиска." }
+  ]
+}

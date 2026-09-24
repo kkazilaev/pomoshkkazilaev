@@ -1,0 +1,20 @@
+{
+  "title": "pip и окружения",
+  "items": [
+    { "code": "pip install package", "desc": "Установка", "detail": "Из PyPI." },
+    { "code": "pip install package==1.2.3", "desc": "Версия", "detail": "Конкретная версия." },
+    { "code": "pip install -r req.txt", "desc": "Из файла", "detail": "Все зависимости." },
+    { "code": "pip install -U package", "desc": "Обновить", "detail": "До последней версии." },
+    { "code": "pip uninstall package", "desc": "Удалить", "detail": "Убирает пакет." },
+    { "code": "pip list", "desc": "Список", "detail": "Все установленные пакеты." },
+    { "code": "pip freeze", "desc": "С версиями", "detail": "> requirements.txt." },
+    { "code": "pip show package", "desc": "Информация", "detail": "Версия, зависимости, путь." },
+    { "code": "pip search query", "desc": "Поиск", "detail": "Устарел." },
+    { "code": "python -m venv env", "desc": "Виртуальное окружение", "detail": "Изоляция проекта." },
+    { "code": "source env/bin/activate", "desc": "Активация (Unix)", "detail": "Windows: env\\Scripts\\activate." },
+    { "code": "deactivate", "desc": "Деактивация", "detail": "Выход из venv." },
+    { "code": "pipenv / poetry", "desc": "Современные менеджеры", "detail": "Управляют зависимостями и venv." },
+    { "code": "requirements.txt", "desc": "Список зависимостей", "detail": "Обычно: имя==версия." },
+    { "code": "pyproject.toml", "desc": "Современный конфиг", "detail": "PEP 518. Заменяет setup.py." }
+  ]
+}

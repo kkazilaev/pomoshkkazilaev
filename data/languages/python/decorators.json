@@ -1,0 +1,17 @@
+{
+  "title": "Декораторы",
+  "items": [
+    { "code": "@decorator", "desc": "Синтаксис", "detail": "Эквивалент f = decorator(f)." },
+    { "code": "def deco(f):", "desc": "Простой декоратор", "detail": "Принимает функцию, возвращает новую." },
+    { "code": "@functools.wraps(f)", "desc": "Сохранение метаданных", "detail": "Сохраняет __name__, __doc__." },
+    { "code": "def deco(*args, **kw)", "desc": "Универсальный", "detail": "Передаёт любые аргументы." },
+    { "code": "@classmethod", "desc": "Метод класса", "detail": "Первый параметр cls." },
+    { "code": "@staticmethod", "desc": "Статический", "detail": "Без self и cls." },
+    { "code": "@property", "desc": "Свойство", "detail": "Превращает метод в атрибут." },
+    { "code": "@x.setter", "desc": "Сеттер свойства", "detail": "Устанавливает значение." },
+    { "code": "@functools.lru_cache", "desc": "Кеш", "detail": "Мемоизация." },
+    { "code": "@dataclasses.dataclass", "desc": "Датакласс", "detail": "Автоматически создаёт методы." },
+    { "code": "Параметризованный декоратор", "desc": "С аргументами", "detail": "def deco(arg): def wrap(f): ... return wrap." },
+    { "code": "Несколько декораторов", "desc": "Стопка", "detail": "Применяются снизу вверх." }
+  ]
+}

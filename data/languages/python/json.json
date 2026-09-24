@@ -1,0 +1,16 @@
+{
+  "title": "JSON",
+  "items": [
+    { "code": "json.loads(s)", "desc": "Строка → объект", "detail": "Парсит JSON-строку." },
+    { "code": "json.dumps(o)", "desc": "Объект → строка", "detail": "indent=4 для читаемости." },
+    { "code": "json.load(f)", "desc": "Файл → объект", "detail": "Читает JSON из файла." },
+    { "code": "json.dump(o, f)", "desc": "Объект → файл", "detail": "Записывает с ensure_ascii=False." },
+    { "code": "ensure_ascii=False", "desc": "Кириллица", "detail": "Без этого русские буквы → \\uXXXX." },
+    { "code": "indent", "desc": "Форматирование", "detail": "indent=2 — красивые отступы." },
+    { "code": "sort_keys", "desc": "Сортировка ключей", "detail": "sort_keys=True." },
+    { "code": "default", "desc": "Для несериализуемых", "detail": "default=str для datetime и т.п." },
+    { "code": "object_hook", "desc": "Преобразование", "detail": "Вызывается для каждого объекта." },
+    { "code": "parse_float", "desc": "Своя обработка float", "detail": "parse_float=Decimal." },
+    { "code": "JSONDecodeError", "desc": "Ошибка парсинга", "detail": "Ловить через except." }
+  ]
+}

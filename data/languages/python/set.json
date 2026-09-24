@@ -1,0 +1,20 @@
+{
+  "title": "Методы множеств (set)",
+  "items": [
+    { "code": "s.add(x)", "desc": "Добавить", "detail": "Не добавляет, если уже есть." },
+    { "code": "s.remove(x)", "desc": "Удалить", "detail": "KeyError если нет." },
+    { "code": "s.discard(x)", "desc": "Удалить безопасно", "detail": "Без исключения, если нет." },
+    { "code": "s.pop()", "desc": "Удалить случайный", "detail": "Возвращает элемент. Порядок не определён." },
+    { "code": "s.clear()", "desc": "Очистить", "detail": "Удаляет всё." },
+    { "code": "s.union(s2)", "desc": "Объединение", "detail": "s | s2. Все элементы из обоих." },
+    { "code": "s.intersection(s2)", "desc": "Пересечение", "detail": "s & s2. Общие элементы." },
+    { "code": "s.difference(s2)", "desc": "Разность", "detail": "s - s2. Элементы только в s." },
+    { "code": "s.symmetric_difference(s2)", "desc": "Симм. разность", "detail": "s ^ s2. Элементы, которых нет в обоих." },
+    { "code": "s.issubset(s2)", "desc": "Подмножество", "detail": "s <= s2. Все элементы s есть в s2." },
+    { "code": "s.issuperset(s2)", "desc": "Надмножество", "detail": "s >= s2." },
+    { "code": "s.isdisjoint(s2)", "desc": "Не пересекаются", "detail": "True, если нет общих элементов." },
+    { "code": "s.update(s2)", "desc": "Обновить", "detail": "s |= s2." },
+    { "code": "s.copy()", "desc": "Копия", "detail": "Поверхностная." },
+    { "code": "set comprehension", "desc": "Генератор множества", "detail": "{x*2 for x in range(5)}." }
+  ]
+}

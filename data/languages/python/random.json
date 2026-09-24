@@ -1,0 +1,18 @@
+{
+  "title": "Модуль random",
+  "items": [
+    { "code": "random.random()", "desc": "0..1", "detail": "Случайный float от 0 до 1." },
+    { "code": "random.randint(a, b)", "desc": "Целое [a, b]", "detail": "Включительно с обеих сторон." },
+    { "code": "random.randrange(a, b)", "desc": "Целое [a, b)", "detail": "Без b." },
+    { "code": "random.uniform(a, b)", "desc": "Float", "detail": "Равномерное распределение." },
+    { "code": "random.choice(seq)", "desc": "Случайный элемент", "detail": "Из последовательности." },
+    { "code": "random.choices(seq, k=n)", "desc": "Несколько с повтором", "detail": "С возвратом." },
+    { "code": "random.sample(seq, k)", "desc": "Несколько без повтора", "detail": "Уникальные." },
+    { "code": "random.shuffle(lst)", "desc": "Перемешать", "detail": "На месте." },
+    { "code": "random.seed(x)", "desc": "Зерно", "detail": "Для воспроизводимости." },
+    { "code": "random.gauss(m, s)", "desc": "Нормальное", "detail": "Среднее m, отклонение s." },
+    { "code": "random.expovariate(l)", "desc": "Экспоненциальное", "detail": "Параметр λ." },
+    { "code": "secrets.token_hex(n)", "desc": "Безопасный токен", "detail": "Для паролей и ключей." },
+    { "code": "secrets.choice(seq)", "desc": "Безопасный выбор", "detail": "Криптостойкий." }
+  ]
+}

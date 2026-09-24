@@ -1,0 +1,25 @@
+{
+  "title": "Работа с файлами",
+  "items": [
+    { "code": "open(path, mode)", "desc": "Открыть файл", "detail": "Режимы: r, w, a, x, b, t, +." },
+    { "code": "with open(...) as f:", "desc": "Контекстный менеджер", "detail": "Автоматически закрывает файл." },
+    { "code": "f.read()", "desc": "Прочитать всё", "detail": "Возвращает строку. Осторожно с большими файлами." },
+    { "code": "f.readline()", "desc": "Одну строку", "detail": "Возвращает строку с \\n." },
+    { "code": "f.readlines()", "desc": "Все строки", "detail": "Список строк." },
+    { "code": "for line in f:", "desc": "Итерация по строкам", "detail": "Эффективно для больших файлов." },
+    { "code": "f.write(s)", "desc": "Записать", "detail": "Только строки. Для других — str()." },
+    { "code": "f.writelines(lst)", "desc": "Записать список", "detail": "Без автоматических переносов." },
+    { "code": "f.close()", "desc": "Закрыть", "detail": "Лучше через with." },
+    { "code": "f.flush()", "desc": "Сбросить буфер", "detail": "Записывает из буфера в файл." },
+    { "code": "f.seek(pos)", "desc": "Переместить курсор", "detail": "f.seek(0) — в начало." },
+    { "code": "f.tell()", "desc": "Позиция курсора", "detail": "Возвращает текущую позицию." },
+    { "code": "os.path.exists(p)", "desc": "Существует?", "detail": "True/False." },
+    { "code": "os.remove(p)", "desc": "Удалить файл", "detail": "os.unlink — то же самое." },
+    { "code": "os.rename(a, b)", "desc": "Переименовать", "detail": "Также перемещает." },
+    { "code": "shutil.copy(a, b)", "desc": "Копировать", "detail": "shutil.copy2 сохраняет метаданные." },
+    { "code": "shutil.rmtree(p)", "desc": "Удалить папку", "detail": "Рекурсивно удаляет." },
+    { "code": "pathlib.Path", "desc": "Современные пути", "detail": "from pathlib import Path. Path('a')/'b'." },
+    { "code": "csv.reader / writer", "desc": "CSV", "detail": "import csv. csv.reader(f)." },
+    { "code": "json.load / dump", "desc": "JSON", "detail": "json.load(f), json.dump(obj, f)." }
+  ]
+}

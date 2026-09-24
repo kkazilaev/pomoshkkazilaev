@@ -1,0 +1,14 @@
+{
+  "title": "Модуль functools",
+  "items": [
+    { "code": "lru_cache(maxsize)", "desc": "Кеш", "detail": "Мемоизация функции." },
+    { "code": "cache", "desc": "Без ограничения", "detail": "3.9+. Просто @cache." },
+    { "code": "partial(f, *args)", "desc": "Частичное применение", "detail": "Фиксирует аргументы." },
+    { "code": "reduce(f, it)", "desc": "Свёртка", "detail": "reduce(lambda a,b: a+b, [1,2,3]) = 6." },
+    { "code": "wraps(f)", "desc": "Метаданные", "detail": "Для декораторов." },
+    { "code": "cmp_to_key(f)", "desc": "Из cmp в key", "detail": "Для сортировки." },
+    { "code": "total_ordering", "desc": "Все сравнения", "detail": "Из __eq__ и __lt__ делает остальные." },
+    { "code": "singledispatch", "desc": "Перегрузка", "detail": "Разное поведение по типу." },
+    { "code": "cached_property", "desc": "Кешируемое свойство", "detail": "Считается один раз." }
+  ]
+}

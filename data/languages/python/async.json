@@ -1,0 +1,17 @@
+{
+  "title": "Асинхронность",
+  "items": [
+    { "code": "async def f():", "desc": "Асинхронная функция", "detail": "Возвращает корутину." },
+    { "code": "await coro", "desc": "Ожидание", "detail": "Только внутри async def." },
+    { "code": "asyncio.run(main())", "desc": "Запуск", "detail": "Точка входа для async-программы." },
+    { "code": "asyncio.gather(*tasks)", "desc": "Параллельно", "detail": "Запускает корутины параллельно." },
+    { "code": "asyncio.create_task(coro)", "desc": "Создать задачу", "detail": "Запускает корутину в фоне." },
+    { "code": "asyncio.sleep(s)", "desc": "Асинхронная пауза", "detail": "Не блокирует event loop." },
+    { "code": "asyncio.Queue", "desc": "Очередь", "detail": "Для обмена данными между задачами." },
+    { "code": "async with", "desc": "Асинхронный контекст", "detail": "Для асинхронных менеджеров." },
+    { "code": "async for", "desc": "Асинхронная итерация", "detail": "Для асинхронных итераторов." },
+    { "code": "asyncio.Lock", "desc": "Блокировка", "detail": "Защита от гонок." },
+    { "code": "aiohttp", "desc": "Асинхронный HTTP", "detail": "Популярная библиотека для запросов." },
+    { "code": "asyncio.Event", "desc": "Событие", "detail": "Сигнал между задачами." }
+  ]
+}

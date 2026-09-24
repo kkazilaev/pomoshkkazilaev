@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загрузка…</title>
+    <link rel="stylesheet" href="global.css">
+</head>
+<body>
+
+    <!-- Экран загрузки (по центру) -->
+    <div id="loader" class="status">
+        <p class="loading">
+            <span class="loading__label">Загрузка</span>
+            <span class="loading__dots">
+                <span>.</span><span>.</span><span>.</span>
+            </span>
+        </p>
+    </div>
+
+    <!-- Экран ошибки -->
+    <div id="error" class="status" style="display:none;">
+        <h1 class="status__title">Сайт временно недоступен</h1>
+        <p class="status__text">
+            Если вы видите эту страницу — попробуйте перезагрузить сайт.
+            Если не помогло — зайдите позже.
+        </p>
+        <button class="status__btn" onclick="location.reload()">Перезагрузить</button>
+    </div>
+
+    <script>
+        /* =========================================================
+           ФУНКЦИЯ 1. Проверка наличия страницы и переход.
+           ========================================================= */
+        async function checkPage() {
+            const target = 'home/index.html';
+
+            try {
+                const res  = await fetch(target, { method: 'HEAD' });
+                const type = res.headers.get('content-type') || '';
+
+                if (res.ok && type.includes('text/html')) {
+                    window.location.replace(target);
+                    return true;
+                }
+                return false;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        /* =========================================================
+           ФУНКЦИЯ 2. Таймер заглушки (3 секунды).
+           ========================================================= */
+        function showErrorAfterDelay() {
+            setTimeout(function () {
+                const loader = document.getElementById('loader');
+                const error  = document.getElementById('error');
+
+                if (loader) loader.style.display = 'none';
+                if (error)  error.style.display  = 'block';
+            }, 3000);
+        }
+
+        /* =========================================================
+           ЗАПУСК.
+           ========================================================= */
+        checkPage();
+        showErrorAfterDelay();
+    </script>
+
+</body>
+</html>

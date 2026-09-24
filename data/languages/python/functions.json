@@ -1,0 +1,21 @@
+{
+  "title": "Функции и аргументы",
+  "items": [
+    { "code": "def f():", "desc": "Определение", "detail": "Создаёт функцию. Тело с отступом." },
+    { "code": "return x", "desc": "Возврат", "detail": "Без return — None. Можно возвращать кортеж." },
+    { "code": "def f(a, b=1):", "desc": "Значения по умолчанию", "detail": "Аргументы с = идут после обычных." },
+    { "code": "def f(*args):", "desc": "Позиционные аргументы", "detail": "args — кортеж всех позиционных." },
+    { "code": "def f(**kwargs):", "desc": "Именованные аргументы", "detail": "kwargs — словарь именованных." },
+    { "code": "def f(a, /, b, *, c):", "desc": "Только позиционные / именованные", "detail": "/ — до него только позиционные. * — после него только именованные." },
+    { "code": "lambda x: x+1", "desc": "Анонимная функция", "detail": "Одно выражение. Без return." },
+    { "code": "f(*args)", "desc": "Распаковка при вызове", "detail": "f(*[1,2]) → f(1, 2)." },
+    { "code": "f(**kwargs)", "desc": "Распаковка словаря", "detail": "f(**{'a':1}) → f(a=1)." },
+    { "code": "f.__doc__", "desc": "Документация", "detail": "Строка под def — это docstring." },
+    { "code": "functools.partial", "desc": "Частичное применение", "detail": "Фиксирует часть аргументов." },
+    { "code": "functools.reduce", "desc": "Свёртка", "detail": "reduce(lambda a,b: a+b, [1,2,3]) = 6." },
+    { "code": "functools.lru_cache", "desc": "Кеш", "detail": "Мемоизация результатов функции." },
+    { "code": "functools.wraps", "desc": "Сохранение метаданных", "detail": "Для декораторов, чтобы сохранить __name__." },
+    { "code": "callable(x)", "desc": "Вызываемый?", "detail": "True если x() допустимо." },
+    { "code": "help(f)", "desc": "Справка", "detail": "Показывает docstring и сигнатуру." }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "title": "Модули и импорты",
+  "items": [
+    { "code": "import module", "desc": "Импорт модуля", "detail": "Доступ через module.attr." },
+    { "code": "import module as m", "desc": "С псевдонимом", "detail": "import numpy as np." },
+    { "code": "from module import x", "desc": "Импорт объекта", "detail": "from math import pi, sqrt." },
+    { "code": "from module import *", "desc": "Импорт всего", "detail": "Не рекомендуется — загрязняет пространство имён." },
+    { "code": "from . import x", "desc": "Относительный импорт", "detail": "Внутри пакета. . — текущий пакет." },
+    { "code": "from .. import x", "desc": "Родительский пакет", "detail": ".. — на уровень выше." },
+    { "code": "__name__", "desc": "Имя модуля", "detail": "'__main__' при прямом запуске." },
+    { "code": "if __name__ == '__main__':", "desc": "Точка входа", "detail": "Выполняется только при запуске файла." },
+    { "code": "__init__.py", "desc": "Пакет", "detail": "Файл делает папку пакетом." },
+    { "code": "sys.path", "desc": "Пути поиска", "detail": "Список папок для импорта." },
+    { "code": "importlib.reload", "desc": "Перезагрузка модуля", "detail": "importlib.reload(module)." },
+    { "code": "pip install", "desc": "Установка пакета", "detail": "pip install requests." },
+    { "code": "pip freeze", "desc": "Список пакетов", "detail": "pip freeze > requirements.txt." },
+    { "code": "python -m venv env", "desc": "Виртуальное окружение", "detail": "Изолирует зависимости проекта." },
+    { "code": "requirements.txt", "desc": "Зависимости", "detail": "pip install -r requirements.txt." },
+    { "code": "pyproject.toml", "desc": "Современный конфиг", "detail": "Заменяет setup.py." },
+    { "code": "__all__", "desc": "Экспортируемые имена", "detail": "Управляет from module import *." },
+    { "code": "__version__", "desc": "Версия модуля", "detail": "Обычно строка." }
+  ]
+}

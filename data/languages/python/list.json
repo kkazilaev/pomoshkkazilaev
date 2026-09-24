@@ -1,0 +1,22 @@
+{
+  "title": "Методы списков (list)",
+  "items": [
+    { "code": "lst.append(x)", "desc": "В конец", "detail": "Добавляет один элемент. Возвращает None." },
+    { "code": "lst.extend(iter)", "desc": "Расширить", "detail": "Добавляет все элементы iterable." },
+    { "code": "lst.insert(i, x)", "desc": "Вставить по индексу", "detail": "Сдвигает остальные вправо." },
+    { "code": "lst.remove(x)", "desc": "Удалить по значению", "detail": "Первый найденный. ValueError если нет." },
+    { "code": "lst.pop(i)", "desc": "Удалить и вернуть", "detail": "По умолчанию последний." },
+    { "code": "lst.clear()", "desc": "Очистить", "detail": "Удаляет все элементы." },
+    { "code": "lst.sort(key, reverse)", "desc": "Сортировка на месте", "detail": "key — функция. reverse=True — убывание." },
+    { "code": "lst.reverse()", "desc": "Развернуть", "detail": "Меняет порядок на месте." },
+    { "code": "lst.count(x)", "desc": "Сколько раз", "detail": "[1,2,2].count(2) = 2." },
+    { "code": "lst.index(x)", "desc": "Индекс", "detail": "Первый индекс. ValueError если нет." },
+    { "code": "lst.copy()", "desc": "Копия", "detail": "Поверхностная. Для вложенных — deepcopy." },
+    { "code": "lst + lst2", "desc": "Конкатенация", "detail": "Возвращает новый список." },
+    { "code": "lst * n", "desc": "Повтор", "detail": "[1,2] * 2 = [1,2,1,2]." },
+    { "code": "lst[i:j:k]", "desc": "Срез", "detail": "lst[::-1] — реверс. lst[::2] — каждый второй." },
+    { "code": "x in lst", "desc": "Вхождение", "detail": "Проверка за O(n). Для множеств — за O(1)." },
+    { "code": "del lst[i]", "desc": "Удалить по индексу", "detail": "del lst[0] — удалить первый." },
+    { "code": "lst[i] = x", "desc": "Изменить элемент", "detail": "lst[0] = 'a'. Индекс должен существовать." }
+  ]
+}

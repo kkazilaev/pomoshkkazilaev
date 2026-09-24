@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>База знаний — KKazilaev_</title>
+    <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+    <header class="nav">
+        <div class="nav__logo">KKazilaev<span>_</span></div>
+        <nav class="nav__menu">
+            <a href="../languages/">Языки</a>
+            <a href="../symbols/">Символы</a>
+            <a href="../schemes/">Схемы</a>
+            <a href="../search/">Поиск</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <h1 class="page__title">База знаний</h1>
+        <p class="page__subtitle">Языки программирования и словарь терминологии.</p>
+
+        <div id="list" class="cards"></div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 KKazilaev_</p>
+    </footer>
+
+    <script>
+        function esc(str) {
+            if (str == null) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+
+        function cardUrl(item) {
+            if (item.type === 'terms') return './terms.html';
+            return `./lang.html?id=${item.id}`;
+        }
+
+        async function loadList() {
+            const list = document.getElementById('list');
+
+            try {
+                const res  = await fetch('../data/index.json');
+                const data = await res.json();
+
+                const items = data.items || data.languages || [];
+
+                if (!items.length) {
+                    list.innerHTML = '<p class="empty">Пока пусто.</p>';
+                    return;
+                }
+
+                list.innerHTML = items.map(item => `
+                    <a class="card" href="${cardUrl(item)}">
+                        <div class="card__head">
+                            <h2 class="card__title">${esc(item.name)}</h2>
+                            ${item.year ? `<span class="card__year">${esc(item.year)}</span>` : ''}
+                        </div>
+                        <p class="card__desc">${esc(item.short)}</p>
+                        <div class="card__tags">
+                            ${(item.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}
+                        </div>
+                    </a>
+                `).join('');
+
+            } catch (e) {
+                list.innerHTML = '<p class="empty">Не удалось загрузить список.</p>';
+                console.error(e);
+            }
+        }
+
+        loadList();
+    </script>
+
+</body>
+</html>

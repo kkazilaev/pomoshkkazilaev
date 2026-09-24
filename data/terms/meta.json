@@ -1,0 +1,28 @@
+{
+  "id": "terms",
+  "name": "Терминология",
+  "short": "Словарь терминов, которые используют программисты",
+  "description": "Собрание понятий, жаргона и терминов из мира разработки. От базовых принципов до сленга, который вы услышите в первый же день в команде.",
+  "modules": [
+    "basics",
+    "oop",
+    "data",
+    "algorithms",
+    "web",
+    "databases",
+    "devops",
+    "git",
+    "testing",
+    "patterns",
+    "architecture",
+    "async",
+    "security",
+    "network",
+    "os",
+    "memory",
+    "compilers",
+    "ai",
+    "slang",
+    "errors"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "title": "Итераторы и генераторы",
+  "items": [
+    { "code": "iter(obj)", "desc": "Итератор", "detail": "Возвращает итератор объекта." },
+    { "code": "next(it)", "desc": "Следующий", "detail": "StopIteration в конце." },
+    { "code": "yield x", "desc": "Генератор", "detail": "Приостанавливает функцию, возвращает x." },
+    { "code": "yield from it", "desc": "Делегирование", "detail": "Передаёт итерацию другому генератору." },
+    { "code": "(x for x in iter)", "desc": "Генераторное выражение", "detail": "Ленивое, экономит память." },
+    { "code": "[x for x in iter]", "desc": "Списковое включение", "detail": "Создаёт список сразу." },
+    { "code": "{k: v for ...}", "desc": "Словарное включение", "detail": "{x: x*x for x in range(3)}." },
+    { "code": "{x for x in iter}", "desc": "Множество", "detail": "{x*2 for x in range(5)}." },
+    { "code": "itertools.chain", "desc": "Объединить", "detail": "chain([1,2], [3,4]) → 1,2,3,4." },
+    { "code": "itertools.cycle", "desc": "Цикл бесконечно", "detail": "cycle('AB') → A,B,A,B,..." },
+    { "code": "itertools.repeat", "desc": "Повтор", "detail": "repeat('x', 3) → x,x,x." },
+    { "code": "itertools.product", "desc": "Декартово произведение", "detail": "product([1,2], 'ab') → (1,'a'),(1,'b'),(2,'a'),(2,'b')." },
+    { "code": "itertools.permutations", "desc": "Перестановки", "detail": "Все перестановки элементов." },
+    { "code": "itertools.combinations", "desc": "Сочетания", "detail": "combinations('ABC', 2) → AB, AC, BC." },
+    { "code": "itertools.groupby", "desc": "Группировка", "detail": "Группирует последовательные элементы по ключу." },
+    { "code": "itertools.islice", "desc": "Срез итератора", "detail": "islice(it, 5) — первые 5." },
+    { "code": "itertools.count", "desc": "Счётчик", "detail": "count(10, 2) → 10,12,14,..." },
+    { "code": "itertools.takewhile", "desc": "Пока условие", "detail": "Берёт элементы, пока условие истинно." },
+    { "code": "itertools.dropwhile", "desc": "Пропустить пока", "detail": "Пропускает, пока условие истинно." },
+    { "code": "itertools.zip_longest", "desc": "Zip с заполнением", "detail": "Работает по самой длинной последовательности." }
+  ]
+}

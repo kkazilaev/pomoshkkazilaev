@@ -1,0 +1,25 @@
+{
+  "title": "Модуль math",
+  "items": [
+    { "code": "math.sqrt(x)", "desc": "Корень", "detail": "math.sqrt(16) = 4.0." },
+    { "code": "math.pow(x, y)", "desc": "Степень", "detail": "float-результат." },
+    { "code": "math.pi / e", "desc": "Константы", "detail": "π и e." },
+    { "code": "math.floor / ceil", "desc": "Округление", "detail": "Вниз / вверх." },
+    { "code": "math.trunc(x)", "desc": "Отбросить дробь", "detail": "Как int(), но для float." },
+    { "code": "math.fabs(x)", "desc": "Модуль float", "detail": "math.fabs(-3) = 3.0." },
+    { "code": "math.factorial(n)", "desc": "Факториал", "detail": "math.factorial(5) = 120." },
+    { "code": "math.gcd(a, b)", "desc": "НОД", "detail": "math.gcd(12, 8) = 4." },
+    { "code": "math.lcm(a, b)", "desc": "НОК", "detail": "3.9+." },
+    { "code": "math.log(x, base)", "desc": "Логарифм", "detail": "log(x) — натуральный." },
+    { "code": "math.log2 / log10", "desc": "Логарифмы по основанию", "detail": "Основание 2 или 10." },
+    { "code": "math.sin / cos / tan", "desc": "Тригонометрия", "detail": "Радианы." },
+    { "code": "math.asin / acos / atan", "desc": "Обратные", "detail": "Возвращают радианы." },
+    { "code": "math.degrees / radians", "desc": "Преобразование углов", "detail": "Радианы ↔ градусы." },
+    { "code": "math.hypot(x, y)", "desc": "Гипотенуза", "detail": "sqrt(x² + y²)." },
+    { "code": "math.isnan / isinf", "desc": "Проверки", "detail": "NaN и бесконечность." },
+    { "code": "math.inf", "desc": "Бесконечность", "detail": "float('inf')." },
+    { "code": "math.nan", "desc": "NaN", "detail": "Не число." },
+    { "code": "math.comb(n, k)", "desc": "Сочетания", "detail": "3.8+." },
+    { "code": "math.perm(n, k)", "desc": "Размещения", "detail": "3.8+." }
+  ]
+}

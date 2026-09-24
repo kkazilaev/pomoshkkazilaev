@@ -1,0 +1,25 @@
+{
+  "title": "Дата и время (datetime)",
+  "items": [
+    { "code": "datetime.now()", "desc": "Текущее время", "detail": "Локальное время." },
+    { "code": "datetime.utcnow()", "desc": "UTC", "detail": "Всемирное координированное." },
+    { "code": "datetime(y, m, d)", "desc": "Создание", "detail": "datetime(2026, 9, 24, 12, 30)." },
+    { "code": "date.today()", "desc": "Сегодня", "detail": "Только дата." },
+    { "code": "timedelta(days=1)", "desc": "Разница", "detail": "Арифметика над датами." },
+    { "code": "dt.strftime(fmt)", "desc": "В строку", "detail": "dt.strftime('%Y-%m-%d')." },
+    { "code": "datetime.strptime(s, fmt)", "desc": "Из строки", "detail": "datetime.strptime('2026-09-24', '%Y-%m-%d')." },
+    { "code": "dt.timestamp()", "desc": "Unix-время", "detail": "Секунды с 1970." },
+    { "code": "datetime.fromtimestamp(t)", "desc": "Из timestamp", "detail": "Обратное преобразование." },
+    { "code": "dt.year / month / day", "desc": "Компоненты", "detail": "dt.hour, dt.minute, dt.second." },
+    { "code": "dt.weekday()", "desc": "День недели", "detail": "0 — понедельник." },
+    { "code": "dt.isoformat()", "desc": "ISO-формат", "detail": "'2026-09-24T12:30:00'." },
+    { "code": "tzinfo / timezone.utc", "desc": "Часовые пояса", "detail": "datetime.now(timezone.utc)." },
+    { "code": "pytz / zoneinfo", "desc": "Часовые пояса", "detail": "zoneinfo.ZoneInfo('Europe/Moscow')." },
+    { "code": "dateutil.parser", "desc": "Гибкий парсинг", "detail": "parse('24 Sep 2026')." },
+    { "code": "time.sleep(s)", "desc": "Пауза", "detail": "Блокирует поток." },
+    { "code": "time.time()", "desc": "Секунды", "detail": "Float — Unix-время." },
+    { "code": "time.perf_counter()", "desc": "Точный таймер", "detail": "Для измерения производительности." },
+    { "code": "date.strftime('%A')", "desc": "День недели", "detail": "'Monday' и т.д." },
+    { "code": "dt.replace(year=...)", "desc": "Изменение", "detail": "Новый объект с изменённым полем." }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "title": "Модуль itertools",
+  "items": [
+    { "code": "count(start, step)", "desc": "Бесконечный счётчик", "detail": "count(10, 2) → 10, 12, 14, ..." },
+    { "code": "cycle(iter)", "desc": "Бесконечный цикл", "detail": "cycle('AB') → A, B, A, B, ..." },
+    { "code": "repeat(x, n)", "desc": "Повтор", "detail": "repeat('x', 3) → x, x, x." },
+    { "code": "chain(*iters)", "desc": "Объединить", "detail": "chain([1,2], [3,4]) → 1,2,3,4." },
+    { "code": "compress(data, sel)", "desc": "Фильтр по маске", "detail": "Оставляет, где sel=True." },
+    { "code": "dropwhile(pred, it)", "desc": "Пропустить пока", "detail": "Пока условие истинно." },
+    { "code": "takewhile(pred, it)", "desc": "Брать пока", "detail": "Пока условие истинно." },
+    { "code": "filterfalse(pred, it)", "desc": "Обратный filter", "detail": "Оставляет ложные." },
+    { "code": "groupby(it, key)", "desc": "Группировка", "detail": "Требует сортировки." },
+    { "code": "islice(it, a, b)", "desc": "Срез итератора", "detail": "islice(it, 5) — первые 5." },
+    { "code": "starmap(f, it)", "desc": "f(*args)", "detail": "starmap(pow, [(2,3)]) → 8." },
+    { "code": "tee(it, n)", "desc": "Размножить", "detail": "n независимых итераторов." },
+    { "code": "zip_longest(*its)", "desc": "Zip по длинной", "detail": "Заполняет fillvalue." },
+    { "code": "product(*its)", "desc": "Декартово произведение", "detail": "product([1,2], 'ab') → (1,'a'),(1,'b'),(2,'a'),(2,'b')." },
+    { "code": "permutations(it, r)", "desc": "Перестановки", "detail": "Все порядки." },
+    { "code": "combinations(it, r)", "desc": "Сочетания", "detail": "Без повторов." },
+    { "code": "combinations_with_replacement", "desc": "С повторами", "detail": "С повторами." },
+    { "code": "accumulate(it)", "desc": "Накопитель", "detail": "accumulate([1,2,3]) → 1, 3, 6." },
+    { "code": "pairwise(it)", "desc": "Пары", "detail": "3.10+: (1,2), (2,3), ..." },
+    { "code": "batched(it, n)", "desc": "Батчи", "detail": "3.12+: разбивает на группы по n." }
+  ]
+}

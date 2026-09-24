@@ -1,0 +1,27 @@
+{
+  "title": "Git и версионирование",
+  "items": [
+    { "code": "Репозиторий", "desc": "Хранилище проекта", "detail": "git init. Все версии файлов." },
+    { "code": "Коммит", "desc": "Снимок изменений", "detail": "git commit. Сохраняет состояние." },
+    { "code": "Ветка", "desc": "Линия разработки", "detail": "git branch. main, feature/xyz." },
+    { "code": "Merge", "desc": "Слияние веток", "detail": "git merge. Объединяет изменения." },
+    { "code": "Rebase", "desc": "Пересадка коммитов", "detail": "Переписывает историю. Для чистоты." },
+    { "code": "Конфликт", "desc": "Несовместимые изменения", "detail": "Два изменения в одной строке. Решается вручную." },
+    { "code": "Pull Request", "desc": "Запрос на слияние", "detail": "PR. Обсуждение и ревью кода." },
+    { "code": "Code Review", "desc": "Проверка кода", "detail": "Коллега смотрит изменения до мерджа." },
+    { "code": "HEAD", "desc": "Текущий коммит", "detail": "Указатель на активную ветку." },
+    { "code": "Origin", "desc": "Основной удалённый репозиторий", "detail": "git remote add origin URL." },
+    { "code": "Fork", "desc": "Копия чужого репо", "detail": "Для своих изменений." },
+    { "code": "Clone", "desc": "Копия репо", "detail": "git clone URL." },
+    { "code": "Pull", "desc": "Забрать изменения", "detail": "git pull = fetch + merge." },
+    { "code": "Push", "desc": "Отправить изменения", "detail": "git push origin main." },
+    { "code": "Stash", "desc": "Отложить изменения", "detail": "git stash. Временно спрятать." },
+    { "code": ".gitignore", "desc": "Что игнорировать", "detail": "Список файлов, не попадающих в репо." },
+    { "code": "Тег", "desc": "Метка версии", "detail": "git tag v1.0.0. Для релизов." },
+    { "code": "Cherry-pick", "desc": "Один коммит из другой ветки", "detail": "git cherry-pick HASH." },
+    { "code": "Bisect", "desc": "Поиск бага", "detail": "git bisect. Бинарный поиск по коммитам." },
+    { "code": "Submodule", "desc": "Репо внутри репо", "detail": "Отдельный проект как зависимость." },
+    { "code": "Monorepo", "desc": "Один репо для всего", "detail": "Все проекты вместе. Google, Meta." },
+    { "code": "Семантическое версионирование", "desc": "MAJOR.MINOR.PATCH", "detail": "1.2.3. Ломающие.новые.фиксы." }
+  ]
+}

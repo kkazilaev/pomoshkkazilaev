@@ -1,0 +1,23 @@
+{
+  "title": "Методы словарей (dict)",
+  "items": [
+    { "code": "d.keys()", "desc": "Ключи", "detail": "Представление ключей. list(d.keys()) — список." },
+    { "code": "d.values()", "desc": "Значения", "detail": "Представление значений." },
+    { "code": "d.items()", "desc": "Пары", "detail": "for k, v in d.items(): ..." },
+    { "code": "d.get(k, def)", "desc": "Значение по ключу", "detail": "Без исключения. def по умолчанию None." },
+    { "code": "d.setdefault(k, v)", "desc": "Значение с созданием", "detail": "Если ключа нет — создаёт с v." },
+    { "code": "d.pop(k, def)", "desc": "Удалить и вернуть", "detail": "С def — безопасно." },
+    { "code": "d.popitem()", "desc": "Удалить последнюю пару", "detail": "LIFO. С 3.7 порядок гарантирован." },
+    { "code": "d.update(other)", "desc": "Обновить", "detail": "Существующие ключи перезаписываются." },
+    { "code": "d.clear()", "desc": "Очистить", "detail": "d.clear() → {}." },
+    { "code": "d.copy()", "desc": "Копия", "detail": "Поверхностная." },
+    { "code": "k in d", "desc": "Проверка ключа", "detail": "Проверяет ключи, не значения." },
+    { "code": "del d[k]", "desc": "Удалить ключ", "detail": "KeyError если нет. Используйте d.pop(k, None)." },
+    { "code": "d | d2", "desc": "Объединение (3.9+)", "detail": "Новый словарь. d |= d2 — обновление на месте." },
+    { "code": "{**d1, **d2}", "desc": "Распаковка", "detail": "Объединение старым способом." },
+    { "code": "dict.fromkeys(keys, v)", "desc": "Из списка ключей", "detail": "Все ключи с одним значением." },
+    { "code": "collections.defaultdict", "desc": "Словарь с default", "detail": "Автоматически создаёт значение для нового ключа." },
+    { "code": "collections.Counter", "desc": "Счётчик", "detail": "Counter('aab') → {'a':2, 'b':1}." },
+    { "code": "collections.OrderedDict", "desc": "С сохранением порядка", "detail": "С 3.7 встроенный dict тоже сохраняет порядок." }
+  ]
+}

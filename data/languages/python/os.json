@@ -1,0 +1,29 @@
+{
+  "title": "os и sys",
+  "items": [
+    { "code": "os.getcwd()", "desc": "Текущая папка", "detail": "Текущий рабочий каталог." },
+    { "code": "os.chdir(path)", "desc": "Сменить папку", "detail": "Перейти в path." },
+    { "code": "os.listdir(path)", "desc": "Список файлов", "detail": "Возвращает список имён." },
+    { "code": "os.mkdir / makedirs", "desc": "Создать папку", "detail": "makedirs — с промежуточными." },
+    { "code": "os.remove(path)", "desc": "Удалить файл", "detail": "os.unlink — то же." },
+    { "code": "os.rmdir / removedirs", "desc": "Удалить папку", "detail": "Только пустые." },
+    { "code": "os.rename(a, b)", "desc": "Переименовать", "detail": "Также перемещает." },
+    { "code": "os.path.join(a, b)", "desc": "Соединить пути", "detail": "Кроссплатформенно." },
+    { "code": "os.path.exists(p)", "desc": "Существует?", "detail": "True/False." },
+    { "code": "os.path.isfile / isdir", "desc": "Файл / папка?", "detail": "Проверка типа." },
+    { "code": "os.path.basename", "desc": "Имя файла", "detail": "Из пути." },
+    { "code": "os.path.dirname", "desc": "Папка", "detail": "Из пути." },
+    { "code": "os.path.abspath", "desc": "Абсолютный путь", "detail": "Из относительного." },
+    { "code": "os.environ", "desc": "Переменные окружения", "detail": "os.environ['HOME']." },
+    { "code": "os.getenv(k)", "desc": "Переменная", "detail": "Безопасно, возвращает None." },
+    { "code": "os.walk(path)", "desc": "Рекурсивный обход", "detail": "Возвращает (root, dirs, files)." },
+    { "code": "os.system(cmd)", "desc": "Команда ОС", "detail": "Не рекомендуется, лучше subprocess." },
+    { "code": "subprocess.run(...)", "desc": "Запуск команды", "detail": "Современная замена os.system." },
+    { "code": "sys.argv", "desc": "Аргументы", "detail": "Список аргументов командной строки." },
+    { "code": "sys.exit(n)", "desc": "Выход", "detail": "sys.exit(0) — успех." },
+    { "code": "sys.path", "desc": "Пути поиска", "detail": "Для импорта модулей." },
+    { "code": "sys.stdin / stdout / stderr", "desc": "Стандартные потоки", "detail": "Ввод, вывод, ошибки." },
+    { "code": "sys.version", "desc": "Версия Python", "detail": "Строка версии." },
+    { "code": "sys.platform", "desc": "Платформа", "detail": "'linux', 'win32', 'darwin'." }
+  ]
+}

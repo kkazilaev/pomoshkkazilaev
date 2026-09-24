@@ -1,0 +1,32 @@
+{
+  "title": "Веб-разработка",
+  "items": [
+    { "code": "Frontend", "desc": "Клиентская часть", "detail": "То, что видит пользователь. HTML, CSS, JavaScript." },
+    { "code": "Backend", "desc": "Серверная часть", "detail": "Логика, база данных, API. Python, Node.js, Go." },
+    { "code": "Fullstack", "desc": "И то, и другое", "detail": "Разработчик, работающий и с фронтом, и с бэком." },
+    { "code": "HTTP", "desc": "Протокол передачи", "detail": "GET, POST, PUT, DELETE. Основа веба." },
+    { "code": "HTTPS", "desc": "HTTP с шифрованием", "detail": "TLS/SSL. Обязателен для продакшена." },
+    { "code": "REST", "desc": "Стиль API", "detail": "Ресурсы + HTTP-методы. /users/1 — GET, DELETE." },
+    { "code": "GraphQL", "desc": "Альтернатива REST", "detail": "Один endpoint, клиент запрашивает нужные поля." },
+    { "code": "API", "desc": "Интерфейс программы", "detail": "Application Programming Interface. Как код общается с кодом." },
+    { "code": "JSON", "desc": "Формат данных", "detail": "{'key': 'value'}. Стандарт для API." },
+    { "code": "Клиент", "desc": "Тот, кто запрашивает", "detail": "Браузер, мобильное приложение, curl." },
+    { "code": "Сервер", "desc": "Тот, кто отвечает", "detail": "Nginx, Apache, uvicorn." },
+    { "code": "Cookie", "desc": "Данные в браузере", "detail": "Хранится на клиенте. Для сессий и настроек." },
+    { "code": "Сессия", "desc": "Состояние пользователя", "detail": "Сервер помнит, кто вы. Через cookie или токен." },
+    { "code": "JWT", "desc": "JSON Web Token", "detail": "Токен с подписью. Хранит данные пользователя." },
+    { "code": "CORS", "desc": "Политика браузера", "detail": "Cross-Origin Resource Sharing. Разрешает запросы с других доменов." },
+    { "code": "CDN", "desc": "Сеть доставки контента", "detail": "Кеширует статику ближе к пользователю. Cloudflare, Akamai." },
+    { "code": "SPA", "desc": "Одностраничное приложение", "detail": "Одна HTML-страница, всё остальное — JS. React, Vue." },
+    { "code": "SSR", "desc": "Серверный рендеринг", "detail": "HTML генерируется на сервере. Быстрее первая загрузка." },
+    { "code": "SSG", "desc": "Статическая генерация", "detail": "HTML генерируется при сборке. Next.js, Astro." },
+    { "code": "WebSocket", "desc": "Двусторонний канал", "detail": "Постоянное соединение. Для чатов и игр." },
+    { "code": "Прокси", "desc": "Посредник", "detail": "Прячет клиента или сервер. Nginx как reverse proxy." },
+    { "code": "Reverse proxy", "desc": "Прокси перед сервером", "detail": "Nginx перед приложением. Распределяет нагрузку." },
+    { "code": "Балансировщик", "desc": "Распределяет нагрузку", "detail": "Round-robin, least connections." },
+    { "code": "Домен", "desc": "Имя сайта", "detail": "example.com. Привязывается через DNS." },
+    { "code": "DNS", "desc": "Система имён", "detail": "Домен → IP-адрес. A, CNAME, MX записи." },
+    { "code": "Хостинг", "desc": "Где живёт сайт", "detail": "Vercel, Netlify, AWS, VPS." },
+    { "code": "Статус-код", "desc": "Ответ сервера", "detail": "200 — OK, 404 — не найдено, 500 — ошибка сервера." }
+  ]
+}

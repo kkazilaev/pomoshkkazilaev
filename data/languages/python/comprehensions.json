@@ -1,0 +1,13 @@
+{
+  "title": "Генераторы списков/словарей",
+  "items": [
+    { "code": "[x for x in iter]", "desc": "Список", "detail": "[x*2 for x in range(5)] = [0,2,4,6,8]." },
+    { "code": "[x for x in iter if c]", "desc": "С условием", "detail": "[x for x in range(10) if x % 2 == 0]." },
+    { "code": "[f(x) if c else g(x)]", "desc": "Тернарный", "detail": "[x if x>0 else -x for x in nums]." },
+    { "code": "{k: v for ...}", "desc": "Словарь", "detail": "{x: x*x for x in range(3)}." },
+    { "code": "{x for x in iter}", "desc": "Множество", "detail": "{x % 3 for x in range(10)}." },
+    { "code": "(x for x in iter)", "desc": "Генератор", "detail": "Ленивый. Не создаёт список." },
+    { "code": "Вложенные", "desc": "Двойной цикл", "detail": "[x*y for x in [1,2] for y in [3,4]]." },
+    { "code": "Условие в конце", "desc": "Фильтр", "detail": "[x for x in range(20) if x % 2 == 0 if x % 3 == 0]." }
+  ]
+}

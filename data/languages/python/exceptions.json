@@ -1,0 +1,25 @@
+{
+  "title": "Исключения",
+  "items": [
+    { "code": "try / except", "desc": "Обработка", "detail": "try — опасный код. except — обработка." },
+    { "code": "except Exception as e:", "desc": "С объектом ошибки", "detail": "e содержит информацию об ошибке." },
+    { "code": "except (A, B):", "desc": "Несколько типов", "detail": "Ловит любое из перечисленных." },
+    { "code": "else:", "desc": "Если ошибок не было", "detail": "Выполняется после try без исключений." },
+    { "code": "finally:", "desc": "Всегда", "detail": "Выполняется в любом случае. Для очистки ресурсов." },
+    { "code": "raise ValueError('msg')", "desc": "Выброс", "detail": "Явно выбрасывает исключение." },
+    { "code": "raise", "desc": "Перевыброс", "detail": "Повторно выбрасывает текущее исключение." },
+    { "code": "Exception", "desc": "Базовое исключение", "detail": "Все стандартные ошибки — наследники." },
+    { "code": "ValueError", "desc": "Неверное значение", "detail": "int('abc') → ValueError." },
+    { "code": "TypeError", "desc": "Неверный тип", "detail": "1 + 'a' → TypeError." },
+    { "code": "KeyError", "desc": "Нет ключа", "detail": "d['missing'] → KeyError." },
+    { "code": "IndexError", "desc": "Нет индекса", "detail": "[1,2][5] → IndexError." },
+    { "code": "AttributeError", "desc": "Нет атрибута", "detail": "obj.missing → AttributeError." },
+    { "code": "NameError", "desc": "Неизвестное имя", "detail": "print(x) без x → NameError." },
+    { "code": "ZeroDivisionError", "desc": "Деление на 0", "detail": "1/0 → ZeroDivisionError." },
+    { "code": "FileNotFoundError", "desc": "Файл не найден", "detail": "open('missing.txt') → FileNotFoundError." },
+    { "code": "ImportError", "desc": "Ошибка импорта", "detail": "import nonexistent → ImportError." },
+    { "code": "StopIteration", "desc": "Конец итератора", "detail": "next() на пустом итераторе." },
+    { "code": "KeyboardInterrupt", "desc": "Ctrl+C", "detail": "Прерывание пользователем." },
+    { "code": "自定义 Exception", "desc": "Своё исключение", "detail": "class MyError(Exception): pass." }
+  ]
+}

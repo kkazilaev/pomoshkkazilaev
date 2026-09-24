@@ -1,0 +1,29 @@
+{
+  "title": "Ошибки и исключения",
+  "items": [
+    { "code": "SyntaxError", "desc": "Нарушение синтаксиса", "detail": "Код не соответствует правилам языка." },
+    { "code": "IndentationError", "desc": "Ошибка отступа", "detail": "Неправильный отступ в Python." },
+    { "code": "NameError", "desc": "Неизвестное имя", "detail": "Переменная не определена." },
+    { "code": "TypeError", "desc": "Неверный тип", "detail": "1 + 'a' — нельзя сложить число и строку." },
+    { "code": "ValueError", "desc": "Неверное значение", "detail": "int('abc')." },
+    { "code": "KeyError", "desc": "Нет ключа", "detail": "d['missing']." },
+    { "code": "IndexError", "desc": "Нет индекса", "detail": "[1,2][5]." },
+    { "code": "AttributeError", "desc": "Нет атрибута", "detail": "obj.missing." },
+    { "code": "ImportError", "desc": "Ошибка импорта", "detail": "Модуль не найден." },
+    { "code": "ModuleNotFoundError", "desc": "Модуль не найден", "detail": "Подкласс ImportError." },
+    { "code": "FileNotFoundError", "desc": "Файл не найден", "detail": "open('missing.txt')." },
+    { "code": "PermissionError", "desc": "Нет доступа", "detail": "Нет прав на файл." },
+    { "code": "ZeroDivisionError", "desc": "Деление на ноль", "detail": "1/0." },
+    { "code": "OverflowError", "desc": "Переполнение", "detail": "Число слишком большое для float." },
+    { "code": "RecursionError", "desc": "Слишком глубокая рекурсия", "detail": "Превышен предел стека." },
+    { "code": "MemoryError", "desc": "Не хватает памяти", "detail": "Программа съела всю RAM." },
+    { "code": "KeyboardInterrupt", "desc": "Ctrl+C", "detail": "Прерывание пользователем." },
+    { "code": "StopIteration", "desc": "Конец итератора", "detail": "next() на пустом итераторе." },
+    { "code": "AssertionError", "desc": "Провал assert", "detail": "assert x > 0." },
+    { "code": "RuntimeError", "desc": "Ошибка времени выполнения", "detail": "Общее исключение." },
+    { "code": "Exception", "desc": "Базовое исключение", "detail": "Родитель всех стандартных ошибок." },
+    { "code": "Traceback", "desc": "Стек вызовов", "detail": "Цепочка вызовов до ошибки." },
+    { "code": "Warning", "desc": "Предупреждение", "detail": "Не ошибка, но стоит обратить внимание." },
+    { "code": "DeprecationWarning", "desc": "Устаревшее", "detail": "Скоро перестанет работать." }
+  ]
+}

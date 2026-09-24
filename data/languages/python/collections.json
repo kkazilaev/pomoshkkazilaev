@@ -1,0 +1,15 @@
+{
+  "title": "Модуль collections",
+  "items": [
+    { "code": "Counter(iter)", "desc": "Счётчик", "detail": "Counter('aab') → {'a':2, 'b':1}." },
+    { "code": "Counter.most_common(n)", "desc": "Топ-n", "detail": "Самые частые элементы." },
+    { "code": "defaultdict(factory)", "desc": "Со значением по умолчанию", "detail": "defaultdict(list) — автоматически []." },
+    { "code": "OrderedDict", "desc": "С порядком", "detail": "С 3.7 встроенный dict тоже сохраняет порядок." },
+    { "code": "namedtuple(name, fields)", "desc": "Именованный кортеж", "detail": "Point = namedtuple('Point', 'x y')." },
+    { "code": "deque(iter)", "desc": "Двусторонняя очередь", "detail": "Быстрые append/pop с обоих концов." },
+    { "code": "deque.appendleft / popleft", "desc": "Слева", "detail": "O(1), в отличие от списка." },
+    { "code": "deque(maxlen=n)", "desc": "Ограничение длины", "detail": "Автоматически удаляет старые." },
+    { "code": "ChainMap(d1, d2)", "desc": "Объединение словарей", "detail": "Без копирования." },
+    { "code": "UserDict / UserList", "desc": "Обёртки", "detail": "Для наследования от dict/list." }
+  ]
+}

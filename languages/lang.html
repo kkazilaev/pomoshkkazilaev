@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Язык — KKazilaev_</title>
+    <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+    <header class="nav">
+        <div class="nav__logo">KKazilaev<span>_</span></div>
+        <nav class="nav__menu">
+            <a href="../languages/">Языки</a>
+            <a href="../symbols/">Символы</a>
+            <a href="../schemes/">Схемы</a>
+            <a href="../search/">Поиск</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <a class="back" href="../languages/">← Назад к базе знаний</a>
+        <div id="content">
+            <p class="loading-inline">Загрузка…</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 KKazilaev_</p>
+    </footer>
+
+    <script type="module">
+        import { esc, renderSections, loadModules, getId } from './render.js';
+
+        async function load() {
+            const id      = getId();
+            const content = document.getElementById('content');
+
+            if (!id) {
+                content.innerHTML = '<p class="empty">Язык не указан.</p>';
+                return;
+            }
+
+            try {
+                const metaRes = await fetch(`../data/languages/${id}.json`);
+                if (!metaRes.ok) throw new Error('404');
+                const meta = await metaRes.json();
+
+                document.title = `${meta.name} — KKazilaev_`;
+
+                const sections = await loadModules(
+                    `../data/languages/${id}/`,
+                    meta.modules || []
+                );
+
+                content.innerHTML = `
+                    <h1 class="page__title">${esc(meta.name)}</h1>
+                    <p class="page__meta">${esc(meta.year)} · ${esc(meta.author)}</p>
+                    <p class="page__subtitle">${esc(meta.description)}</p>
+
+                    <div class="terms-search">
+                        <input id="filter" type="text" placeholder="Поиск по командам…" autocomplete="off">
+                    </div>
+
+                    <div id="sections"></div>
+                `;
+
+                renderSections(
+                    document.getElementById('sections'),
+                    sections
+                );
+
+                // Живой фильтр — тот же, что в terms.html
+                const input = document.getElementById('filter');
+                input.addEventListener('input', function () {
+                    const q = this.value.trim().toLowerCase();
+
+                    document.querySelectorAll('.row').forEach(row => {
+                        const text = row.textContent.toLowerCase();
+                        row.style.display = (!q || text.includes(q)) ? '' : 'none';
+                    });
+
+                    document.querySelectorAll('.section').forEach(sec => {
+                        const visible = sec.querySelectorAll('.row:not([style*="display: none"])').length;
+                        sec.style.display = visible ? '' : 'none';
+                    });
+                });
+
+            } catch (e) {
+                content.innerHTML = '<p class="empty">Язык не найден.</p>';
+                console.error(e);
+            }
+        }
+
+        load();
+    </script>
+
+</body>
+</html>
