@@ -1,0 +1,35 @@
+{
+  "title": "Паттерны",
+  "items": [
+    {
+      "code": "class Singleton:\n    _instance = None\n    def __new__(cls):\n        if cls._instance is None:\n            cls._instance = super().__new__(cls)\n        return cls._instance",
+      "desc": "Одиночка (Singleton)",
+      "detail": "Гарантирует единственный экземпляр класса. __new__ вызывается до __init__. Каждый вызов Singleton() возвращает один и тот же объект. Применяется для конфигов, логгеров, соединений."
+    },
+    {
+      "code": "def factory(type):\n    if type == \"a\":\n        return A()\n    elif type == \"b\":\n        return B()\n\nobj = factory(\"a\")",
+      "desc": "Фабрика",
+      "detail": "Функция, возвращающая объект нужного класса по параметру. Скрывает логику выбора класса от клиента. Полезно, когда тип определяется во время выполнения."
+    },
+    {
+      "code": "class Pizza:\n    def __init__(self):\n        self.toppings = []\n    def add(self, t):\n        self.toppings.append(t)\n        return self\n\np = Pizza().add(\"сыр\").add(\"грибы\")",
+      "desc": "Строитель (Builder) с цепочкой",
+      "detail": "Каждый метод возвращает self — можно вызывать цепочкой. Удобно для пошагового создания сложных объектов. Часто используется в ORM-запросах."
+    },
+    {
+      "code": "def decorator(func):\n    def wrapper(*args, **kwargs):\n        print(\"до\")\n        result = func(*args, **kwargs)\n        print(\"после\")\n        return result\n    return wrapper\n\n@decorator\ndef hello():\n    print(\"привет\")",
+      "desc": "Декоратор",
+      "detail": "Оборачивает функцию, добавляя поведение до и после. @decorator — синтаксический сахар: hello = decorator(hello). Основа для логирования, кеша, проверок прав."
+    },
+    {
+      "code": "class Observer:\n    def __init__(self):\n        self.subs = []\n    def subscribe(self, fn):\n        self.subs.append(fn)\n    def notify(self, data):\n        for fn in self.subs:\n            fn(data)",
+      "desc": "Наблюдатель (Observer)",
+      "detail": "Объект уведомляет подписчиков об изменениях. Классика для событийных систем, UI, реактивных библиотек. Позволяет слабо связать источник данных и обработчиков."
+    },
+    {
+      "code": "class Strategy:\n    def __init__(self, func):\n        self.func = func\n    def execute(self, data):\n        return self.func(data)\n\ns = Strategy(lambda x: x * 2)\nprint(s.execute(5))",
+      "desc": "Стратегия",
+      "detail": "Позволяет менять алгоритм во время выполнения. Функция передаётся как параметр. В Python часто заменяется просто передачей функции."
+    }
+  ]
+}

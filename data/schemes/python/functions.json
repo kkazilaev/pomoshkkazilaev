@@ -1,0 +1,65 @@
+{
+  "title": "Функции",
+  "items": [
+    {
+      "code": "def greet():\n    print(\"Привет!\")",
+      "desc": "Простейшая функция",
+      "detail": "def объявляет функцию. Тело — с отступом. Вызов: greet(). Функция без return возвращает None."
+    },
+    {
+      "code": "def add(a, b):\n    return a + b\n\nresult = add(2, 3)\nprint(result)",
+      "desc": "Функция с параметрами и возвратом",
+      "detail": "a и b — параметры. return возвращает результат, который можно сохранить в переменную. Функция без явного return возвращает None."
+    },
+    {
+      "code": "def greet(name=\"мир\"):\n    print(f\"Привет, {name}!\")\n\ngreet()\ngreet(\"Анна\")",
+      "desc": "Значение по умолчанию",
+      "detail": "Параметр с = имеет значение по умолчанию. Если аргумент не передан — используется оно. По умолчанию параметры должны идти последними."
+    },
+    {
+      "code": "def total(*args):\n    return sum(args)\n\nprint(total(1, 2, 3))\nprint(total(1, 2, 3, 4, 5))",
+      "desc": "Произвольное число позиционных аргументов",
+      "detail": "*args собирает все позиционные аргументы в кортеж. Можно передать любое количество: total(1), total(1,2,3) и т.д."
+    },
+    {
+      "code": "def info(**kwargs):\n    for key, value in kwargs.items():\n        print(key, value)\n\ninfo(name=\"Анна\", age=25)",
+      "desc": "Именованные аргументы",
+      "detail": "**kwargs собирает именованные аргументы в словарь. Удобно для функций с гибкими параметрами."
+    },
+    {
+      "code": "def f(a, b, *, c):\n    return a + b + c\n\nf(1, 2, c=3)",
+      "desc": "Только именованные аргументы",
+      "detail": "* в сигнатуре разделяет: до него — позиционные или именованные, после — только именованные. f(1, 2, 3) вызовет ошибку."
+    },
+    {
+      "code": "square = lambda x: x * x\nprint(square(5))",
+      "desc": "Лямбда-функция",
+      "detail": "Анонимная функция из одного выражения. Эквивалент def square(x): return x * x. Удобна для map, filter, sort."
+    },
+    {
+      "code": "def outer():\n    x = 10\n    def inner():\n        return x\n    return inner()\n\nprint(outer())",
+      "desc": "Вложенные функции",
+      "detail": "Функция внутри функции. Внутренняя видит переменные внешней (замыкание). Внешняя возвращает результат вызова внутренней."
+    },
+    {
+      "code": "def counter():\n    count = 0\n    def inc():\n        nonlocal count\n        count += 1\n        return count\n    return inc\n\nc = counter()\nprint(c(), c(), c())",
+      "desc": "Замыкание со счётчиком",
+      "detail": "nonlocal позволяет изменять переменную внешней функции. Каждый вызов counter() создаёт независимый счётчик — 1, 2, 3."
+    },
+    {
+      "code": "def apply(func, x):\n    return func(x)\n\nprint(apply(lambda x: x * 2, 5))",
+      "desc": "Функция как аргумент",
+      "detail": "Функции в Python — объекты первого класса: их можно передавать как аргументы. Здесь apply принимает функцию и применяет её к числу."
+    },
+    {
+      "code": "@functools.lru_cache(maxsize=None)\ndef fib(n):\n    if n < 2:\n        return n\n    return fib(n-1) + fib(n-2)",
+      "desc": "Мемоизация через декоратор",
+      "detail": "lru_cache кеширует результаты функции. При повторном вызове с теми же аргументами возвращает готовый ответ. Ускоряет рекурсивные функции в разы."
+    },
+    {
+      "code": "def gen():\n    for i in range(3):\n        yield i\n\nfor x in gen():\n    print(x)",
+      "desc": "Генератор",
+      "detail": "yield вместо return делает функцию генератором. Значения возвращаются по одному, экономя память. for сам вызывает next()."
+    }
+  ]
+}

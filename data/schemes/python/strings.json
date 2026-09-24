@@ -1,0 +1,65 @@
+{
+  "title": "Строки",
+  "items": [
+    {
+      "code": "s = \"Hello, World\"\nprint(s.upper())\nprint(s.lower())\nprint(s.title())",
+      "desc": "Изменение регистра",
+      "detail": "upper() — всё заглавное. lower() — всё строчное. title() — первая буква каждого слова заглавная."
+    },
+    {
+      "code": "s = \"  текст  \"\nprint(s.strip())\nprint(s.lstrip())\nprint(s.rstrip())",
+      "desc": "Удаление пробелов",
+      "detail": "strip() убирает пробелы с обоих концов. lstrip() — только слева, rstrip() — только справа. Можно передать символы: strip('.')"
+    },
+    {
+      "code": "s = \"a,b,c\"\nparts = s.split(\",\")\nprint(parts)\nprint(\"-\".join(parts))",
+      "desc": "Разбиение и объединение",
+      "detail": "split() разбивает по разделителю, возвращает список. join() собирает список обратно в строку через разделитель."
+    },
+    {
+      "code": "s = \"hello world\"\nprint(s.replace(\"world\", \"Python\"))",
+      "desc": "Замена подстроки",
+      "detail": "replace() возвращает новую строку. Исходная не меняется — строки в Python неизменяемы."
+    },
+    {
+      "code": "s = \"hello\"\nprint(s.startswith(\"he\"))\nprint(s.endswith(\"lo\"))\nprint(\"ell\" in s)",
+      "desc": "Проверка содержимого",
+      "detail": "startswith/endswith — начало и конец. in — вхождение подстроки в любом месте. Все возвращают True/False."
+    },
+    {
+      "code": "s = \"hello\"\nprint(s.find(\"l\"))\nprint(s.count(\"l\"))",
+      "desc": "Поиск и подсчёт",
+      "detail": "find() возвращает индекс первого вхождения, -1 если не найдено. count() — сколько раз встречается."
+    },
+    {
+      "code": "name = \"Анна\"\nage = 25\nprint(f\"{name} — {age}\")",
+      "desc": "f-строка",
+      "detail": "Самый современный и быстрый способ форматирования. Внутри {} можно писать любые выражения: f\"{2+2}\" → '4'."
+    },
+    {
+      "code": "print(\"{} {}\".format(\"a\", \"b\"))\nprint(\"{0} {1}\".format(\"a\", \"b\"))\nprint(\"{name}\".format(name=\"a\"))",
+      "desc": "Метод format",
+      "detail": "Старый способ, но всё ещё встречается. {} заменяется аргументами по порядку. {0} — по индексу. {name} — по имени."
+    },
+    {
+      "code": "s = \"abc\"\nprint(s[::-1])",
+      "desc": "Разворот строки",
+      "detail": "Срез с шагом -1 читает строку с конца. Результат: 'cba'. Работает и с любыми последовательностями."
+    },
+    {
+      "code": "s = \"line1\\nline2\\nline3\"\nfor line in s.splitlines():\n    print(line)",
+      "desc": "Разбиение по строкам",
+      "detail": "splitlines() разбивает по \\n, \\r, \\r\\n и возвращает список строк без символов переноса."
+    },
+    {
+      "code": "s = \"abc123\"\nprint(s.isdigit())\nprint(s.isalpha())\nprint(s.isalnum())",
+      "desc": "Проверки содержимого",
+      "detail": "isdigit() — только цифры. isalpha() — только буквы. isalnum() — буквы и цифры. Все возвращают bool."
+    },
+    {
+      "code": "s = \"Hello\"\nprint(s[0])\nprint(s[-1])\nprint(s[1:3])",
+      "desc": "Индексация и срезы",
+      "detail": "Строка — последовательность символов. Индекс 0 — первый, -1 — последний. Срез [1:3] вернёт 'el'."
+    }
+  ]
+}

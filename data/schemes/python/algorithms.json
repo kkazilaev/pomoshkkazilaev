@@ -1,0 +1,70 @@
+{
+  "title": "Алгоритмы",
+  "items": [
+    {
+      "code": "def bubble_sort(lst):\n    n = len(lst)\n    for i in range(n):\n        for j in range(n - i - 1):\n            if lst[j] > lst[j+1]:\n                lst[j], lst[j+1] = lst[j+1], lst[j]\n    return lst",
+      "desc": "Пузырьковая сортировка",
+      "detail": "Классический учебный алгоритм. Сравнивает соседние элементы и меняет местами, если они в неправильном порядке. Сложность O(n²) — годится только для обучения и очень маленьких массивов."
+    },
+    {
+      "code": "def binary_search(lst, target):\n    left, right = 0, len(lst) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if lst[mid] == target:\n            return mid\n        elif lst[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1",
+      "desc": "Бинарный поиск",
+      "detail": "Работает только на отсортированном массиве. Делит диапазон пополам на каждом шаге. Сложность O(log n) — для миллиона элементов нужно всего ~20 шагов. Ключевая идея — отсекать половину, где элемента точно нет."
+    },
+    {
+      "code": "def quick_sort(lst):\n    if len(lst) <= 1:\n        return lst\n    pivot = lst[len(lst) // 2]\n    left = [x for x in lst if x < pivot]\n    mid = [x for x in lst if x == pivot]\n    right = [x for x in lst if x > pivot]\n    return quick_sort(left) + mid + quick_sort(right)",
+      "desc": "Быстрая сортировка (Quicksort)",
+      "detail": "Выбираем опорный элемент (pivot), делим массив на три части: меньше, равные, больше. Рекурсивно сортируем каждую. В среднем O(n log n). В худшем случае O(n²) — если pivot всегда минимум или максимум. На практике очень быстрый."
+    },
+    {
+      "code": "def merge_sort(lst):\n    if len(lst) <= 1:\n        return lst\n    mid = len(lst) // 2\n    left = merge_sort(lst[:mid])\n    right = merge_sort(lst[mid:])\n    return merge(left, right)\n\ndef merge(a, b):\n    result = []\n    i = j = 0\n    while i < len(a) and j < len(b):\n        if a[i] <= b[j]:\n            result.append(a[i]); i += 1\n        else:\n            result.append(b[j]); j += 1\n    return result + a[i:] + b[j:]",
+      "desc": "Сортировка слиянием",
+      "detail": "Делит массив пополам, рекурсивно сортирует каждую половину, потом сливает. Всегда O(n log n), стабильная. Требует O(n) дополнительной памяти. Хороша для связных списков и внешней сортировки."
+    },
+    {
+      "code": "def fib(n):\n    if n < 2:\n        return n\n    return fib(n-1) + fib(n-2)",
+      "desc": "Числа Фибоначчи (рекурсия)",
+      "detail": "Классическая рекурсия. Каждый вызов делает два вызова. Экспоненциальная сложность O(2ⁿ) — для больших n не подходит. Хорошо показывает идею рекурсии."
+    },
+    {
+      "code": "def fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a",
+      "desc": "Числа Фибоначчи (итерация)",
+      "detail": "Итеративная версия — O(n) по времени и O(1) по памяти. Работает быстро даже для больших чисел. Всегда предпочитайте итерацию, если рекурсия даёт экспоненту."
+    },
+    {
+      "code": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a",
+      "desc": "НОД (алгоритм Евклида)",
+      "detail": "Находит наибольший общий делитель. Идея: НОД(a, b) = НОД(b, a % b). Работает за O(log min(a, b)). Один из старейших алгоритмов в истории."
+    },
+    {
+      "code": "def is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True",
+      "desc": "Проверка на простое число",
+      "detail": "Проверяем делители до √n, потому что если есть делитель больше √n, то есть и меньше. Сложность O(√n). Для больших чисел есть более быстрые тесты (Миллера-Рабина)."
+    },
+    {
+      "code": "def reverse(s):\n    if len(s) <= 1:\n        return s\n    return reverse(s[1:]) + s[0]",
+      "desc": "Разворот строки рекурсией",
+      "detail": "Берём первый символ и переносим в конец, остальное разворачиваем рекурсивно. Просто, но неэффективно — каждая итерация создаёт новую строку. На практике s[::-1]."
+    },
+    {
+      "code": "def factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n-1)",
+      "desc": "Факториал",
+      "detail": "Простая рекурсия с базой n <= 1. Для больших n может превысить предел рекурсии (по умолчанию 1000). Итеративная версия надёжнее."
+    },
+    {
+      "code": "def permutations(s):\n    if len(s) <= 1:\n        return [s]\n    result = []\n    for i, c in enumerate(s):\n        rest = s[:i] + s[i+1:]\n        for p in permutations(rest):\n            result.append(c + p)\n    return result",
+      "desc": "Все перестановки строки",
+      "detail": "Для каждого символа ставим его первым, остальное переставляем рекурсивно. Сложность O(n!), потому что n! перестановок. Для больших строк используйте itertools.permutations."
+    },
+    {
+      "code": "graph = {\n    'A': ['B', 'C'],\n    'B': ['D'],\n    'C': ['D'],\n    'D': []\n}\n\ndef bfs(graph, start):\n    visited = set()\n    queue = [start]\n    while queue:\n        node = queue.pop(0)\n        if node not in visited:\n            visited.add(node)\n            queue.extend(graph[node])\n    return visited",
+      "desc": "Обход графа в ширину (BFS)",
+      "detail": "Использует очередь. Идёт по уровням: сначала все соседи старта, потом их соседи. Находит кратчайший путь в невзвешенном графе. Сложность O(V + E)."
+    },
+    {
+      "code": "def dfs(graph, node, visited=None):\n    if visited is None:\n        visited = set()\n    visited.add(node)\n    for neighbor in graph[node]:\n        if neighbor not in visited:\n            dfs(graph, neighbor, visited)\n    return visited",
+      "desc": "Обход графа в глубину (DFS)",
+      "detail": "Идёт вглубь до конца, потом возвращается. Реализуется рекурсией или стеком. Полезен для поиска циклов, топологической сортировки. Сложность O(V + E)."
+    }
+  ]
+}

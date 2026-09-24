@@ -1,0 +1,55 @@
+{
+  "title": "ООП",
+  "items": [
+    {
+      "code": "class User:\n    def __init__(self, name):\n        self.name = name\n\nu = User(\"Анна\")\nprint(u.name)",
+      "desc": "Простейший класс",
+      "detail": "__init__ — конструктор, вызывается при создании. self — ссылка на объект. Атрибуты задаются через self.name."
+    },
+    {
+      "code": "class User:\n    def __init__(self, name):\n        self.name = name\n    \n    def greet(self):\n        return f\"Привет, {self.name}!\"\n\nu = User(\"Анна\")\nprint(u.greet())",
+      "desc": "Метод класса",
+      "detail": "Метод — функция внутри класса. Первый параметр всегда self. Вызывается через объект: u.greet()."
+    },
+    {
+      "code": "class Animal:\n    def speak(self):\n        return \"...\"\n\nclass Dog(Animal):\n    def speak(self):\n        return \"Гав\"\n\nd = Dog()\nprint(d.speak())",
+      "desc": "Наследование и полиморфизм",
+      "detail": "Dog наследует Animal. Метод speak переопределён. При вызове d.speak() Python найдёт метод в Dog, а не в Animal."
+    },
+    {
+      "code": "class Animal:\n    def __init__(self, name):\n        self.name = name\n\nclass Dog(Animal):\n    def __init__(self, name, breed):\n        super().__init__(name)\n        self.breed = breed",
+      "desc": "super() в конструкторе",
+      "detail": "super() вызывает метод родителя. Здесь — конструктор Animal, чтобы задать name. Потом добавляется breed."
+    },
+    {
+      "code": "class Counter:\n    def __init__(self):\n        self._count = 0\n    \n    @property\n    def count(self):\n        return self._count",
+      "desc": "Свойство через @property",
+      "detail": "property превращает метод в атрибут только для чтения. c.count работает как поле, но вычисляется методом. _count — соглашение о приватности."
+    },
+    {
+      "code": "class Math:\n    @staticmethod\n    def add(a, b):\n        return a + b\n\nprint(Math.add(2, 3))",
+      "desc": "Статический метод",
+      "detail": "staticmethod не получает self. Это обычная функция, логически связанная с классом. Вызывается через класс: Math.add()."
+    },
+    {
+      "code": "class User:\n    count = 0\n    def __init__(self, name):\n        self.name = name\n        User.count += 1",
+      "desc": "Атрибут класса",
+      "detail": "count — общий для всех объектов. Изменяется через User.count, а не self.count. Считает, сколько объектов создано."
+    },
+    {
+      "code": "class Point:\n    def __init__(self, x, y):\n        self.x, self.y = x, y\n    \n    def __str__(self):\n        return f\"({self.x}, {self.y})\"\n    \n    def __eq__(self, other):\n        return self.x == other.x and self.y == other.y",
+      "desc": "Магические методы __str__ и __eq__",
+      "detail": "__str__ отвечает за print(). __eq__ — за сравнение ==. Без них print выведет адрес объекта, а == сравнивал бы ссылки, а не значения."
+    },
+    {
+      "code": "from dataclasses import dataclass\n\n@dataclass\nclass User:\n    name: str\n    age: int",
+      "desc": "Датакласс",
+      "detail": "dataclass автоматически создаёт __init__, __repr__, __eq__. Меньше шаблонного кода. Только аннотации типов — и всё работает."
+    },
+    {
+      "code": "from abc import ABC, abstractmethod\n\nclass Shape(ABC):\n    @abstractmethod\n    def area(self):\n        pass",
+      "desc": "Абстрактный класс",
+      "detail": "ABC — абстрактный базовый класс. Метод с @abstractmethod обязан быть реализован в потомках. Нельзя создать объект Shape напрямую."
+    }
+  ]
+}

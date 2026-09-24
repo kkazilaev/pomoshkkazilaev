@@ -1,0 +1,30 @@
+{
+  "title": "Асинхронность",
+  "items": [
+    {
+      "code": "import asyncio\n\nasync def main():\n    print(\"начало\")\n    await asyncio.sleep(1)\n    print(\"конец\")\n\nasyncio.run(main())",
+      "desc": "Простейшая корутина",
+      "detail": "async def создаёт корутину. await asyncio.sleep(1) приостанавливает её на 1 секунду, не блокируя программу. asyncio.run() — точка входа."
+    },
+    {
+      "code": "async def task(name, delay):\n    await asyncio.sleep(delay)\n    print(name)\n\nasync def main():\n    await asyncio.gather(\n        task(\"A\", 2),\n        task(\"B\", 1),\n    )\n\nasyncio.run(main())",
+      "desc": "Параллельный запуск задач",
+      "detail": "gather запускает корутины параллельно. B завершится раньше A, хотя запущен вторым — потому что ждёт всего 1 секунду."
+    },
+    {
+      "code": "async def main():\n    task = asyncio.create_task(task(\"A\", 2))\n    print(\"задача создана\")\n    await task\n\nasyncio.run(main())",
+      "desc": "Задача в фоне",
+      "detail": "create_task запускает корутину немедленно и возвращает объект Task. Основной код продолжает работу. await task дожидается завершения."
+    },
+    {
+      "code": "async def fetch(url):\n    await asyncio.sleep(1)\n    return f\"data from {url}\"\n\nasync def main():\n    urls = [\"a\", \"b\", \"c\"]\n    results = await asyncio.gather(*[fetch(u) for u in urls])\n    print(results)\n\nasyncio.run(main())",
+      "desc": "Параллельные запросы",
+      "detail": "Типичный сценарий: несколько HTTP-запросов одновременно. Все три выполнятся за ~1 секунду, а не за 3. Так работают современные веб-краулеры и API-клиенты."
+    },
+    {
+      "code": "async def producer(q):\n    for i in range(5):\n        await q.put(i)\n\nasync def consumer(q):\n    while True:\n        item = await q.get()\n        print(item)\n\nasync def main():\n    q = asyncio.Queue()\n    await asyncio.gather(producer(q), consumer(q))",
+      "desc": "Очередь между задачами",
+      "detail": "asyncio.Queue — безопасный обмен данными между корутинами. Producer кладёт, consumer забирает. Работает без блокировок."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "title": "Исключения",
+  "items": [
+    {
+      "code": "try:\n    x = int(input())\nexcept ValueError:\n    print(\"не число\")",
+      "desc": "Простая обработка ошибки",
+      "detail": "try — код, который может упасть. except — что делать при ошибке. Ловим конкретный тип: ValueError."
+    },
+    {
+      "code": "try:\n    x = 1 / 0\nexcept ZeroDivisionError as e:\n    print(f\"Ошибка: {e}\")",
+      "desc": "Получение объекта ошибки",
+      "detail": "as e сохраняет объект исключения. У него можно узнать сообщение: str(e). Удобно для логирования."
+    },
+    {
+      "code": "try:\n    x = int(\"abc\")\nexcept (ValueError, TypeError) as e:\n    print(\"ошибка ввода\")",
+      "desc": "Несколько типов исключений",
+      "detail": "Кортеж из типов в except. Ловит любое из перечисленных. Если ни одно не подходит — исключение пойдёт дальше."
+    },
+    {
+      "code": "try:\n    x = 1 / 1\nexcept ZeroDivisionError:\n    print(\"деление на ноль\")\nelse:\n    print(\"всё ок\")\nfinally:\n    print(\"конец\")",
+      "desc": "try / except / else / finally",
+      "detail": "else — если ошибок не было. finally — выполнится всегда, даже при ошибке. Полезно для закрытия ресурсов."
+    },
+    {
+      "code": "def divide(a, b):\n    if b == 0:\n        raise ValueError(\"делить на ноль нельзя\")\n    return a / b",
+      "desc": "Свой выброс исключения",
+      "detail": "raise выбрасывает исключение вручную. Полезно для проверки входных данных. Сообщение можно передать строкой."
+    },
+    {
+      "code": "class MyError(Exception):\n    pass\n\nraise MyError(\"своя ошибка\")",
+      "desc": "Своё исключение",
+      "detail": "Наследуйся от Exception — и твоё исключение можно ловить через except MyError. Используется для бизнес-логики."
+    },
+    {
+      "code": "try:\n    with open(\"missing.txt\") as f:\n        data = f.read()\nexcept FileNotFoundError:\n    print(\"файл не найден\")",
+      "desc": "Обработка отсутствия файла",
+      "detail": "FileNotFoundError возникает при открытии несуществующего файла в режиме чтения. Часто ловится при работе с внешними данными."
+    }
+  ]
+}

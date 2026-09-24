@@ -1,0 +1,18 @@
+{
+  "id": "python",
+  "name": "Python",
+  "description": "Схемы и готовый код на Python: от базовых конструкций до продвинутых паттернов.",
+  "modules": [
+    "basics",
+    "control",
+    "functions",
+    "data",
+    "strings",
+    "files",
+    "oop",
+    "exceptions",
+    "algorithms",
+    "async",
+    "patterns"
+  ]
+}

@@ -663,3 +663,21 @@ a {
     color: var(--violet);
     border-bottom-color: var(--violet-dim);
 }
+
+/* =====================
+   Многострочный код в схемах
+   ===================== */
+.row__code {
+    white-space: pre-wrap;      /* сохраняет переносы */
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.row__summary {
+    align-items: flex-start;    /* выравнивание по верху */
+}
+
+/* В раскрытом виде — код крупнее */
+.row[open] .row__code {
+    font-size: 0.85rem;
+}

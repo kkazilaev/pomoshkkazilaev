@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Схемы — KKazilaev_</title>
+    <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+    <header class="nav">
+        <a href="../home/" class="nav__logo">KKazilaev<span>_</span></a>
+        <nav class="nav__menu">
+            <a href="../languages/">Языки</a>
+            <a href="../symbols/">Символы</a>
+            <a href="../schemes/" class="is-active">Схемы</a>
+            <a href="../search/">Поиск</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <div id="content">
+            <p class="loading-inline">Загрузка…</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 KKazilaev_ · <a href="https://github.com/kkazilaev/pomoshkkazilaev" target="_blank" rel="noopener">GitHub</a></p>
+    </footer>
+
+    <script type="module">
+        import { esc, renderSections, loadModules } from '../languages/render.js';
+
+        const params = new URLSearchParams(window.location.search);
+        const lang   = params.get('lang');
+
+        async function loadLangList() {
+            const content = document.getElementById('content');
+
+            try {
+                const res  = await fetch('../data/schemes/meta.json');
+                const meta = await res.json();
+
+                content.innerHTML = `
+                    <h1 class="page__title">${esc(meta.name)}</h1>
+                    <p class="page__subtitle">${esc(meta.description)}</p>
+
+                    <div class="cards">
+                        ${meta.languages.map(l => `
+                            <a class="card" href="./index.html?lang=${l.id}">
+                                <div class="card__head">
+                                    <h2 class="card__title">${esc(l.name)}</h2>
+                                </div>
+                                <p class="card__desc">${esc(l.short)}</p>
+                                <div class="card__tags">
+                                    ${(l.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}
+                                </div>
+                            </a>
+                        `).join('')}
+                    </div>
+                `;
+            } catch (e) {
+                content.innerHTML = '<p class="empty">Не удалось загрузить список языков.</p>';
+                console.error(e);
+            }
+        }
+
+        async function loadSchemes(langId) {
+            const content = document.getElementById('content');
+
+            try {
+                const metaRes = await fetch(`../data/schemes/${langId}/meta.json`);
+                if (!metaRes.ok) throw new Error('404');
+                const meta = await metaRes.json();
+
+                document.title = `${meta.name} — Схемы — KKazilaev_`;
+
+                const sections = await loadModules(
+                    `../data/schemes/${langId}/`,
+                    meta.modules || []
+                );
+
+                content.innerHTML = `
+                    <a class="back" href="./index.html">← Все языки</a>
+                    <h1 class="page__title">${esc(meta.name)}</h1>
+                    <p class="page__subtitle">${esc(meta.description)}</p>
+
+                    <div class="terms-search">
+                        <input id="filter" type="text" placeholder="Поиск по схемам…" autocomplete="off">
+                    </div>
+
+                    <div id="sections"></div>
+                `;
+
+                renderSections(
+                    document.getElementById('sections'),
+                    sections
+                );
+
+                const input = document.getElementById('filter');
+                input.addEventListener('input', function () {
+                    const q = this.value.trim().toLowerCase();
+
+                    document.querySelectorAll('.row').forEach(row => {
+                        const text = row.textContent.toLowerCase();
+                        row.style.display = (!q || text.includes(q)) ? '' : 'none';
+                    });
+
+                    document.querySelectorAll('.section').forEach(sec => {
+                        const visible = sec.querySelectorAll('.row:not([style*="display: none"])').length;
+                        sec.style.display = visible ? '' : 'none';
+                    });
+                });
+
+            } catch (e) {
+                content.innerHTML = '<p class="empty">Не удалось загрузить схемы.</p>';
+                console.error(e);
+            }
+        }
+
+        if (lang) {
+            loadSchemes(lang);
+        } else {
+            loadLangList();
+        }
+    </script>
+
+</body>
+</html>

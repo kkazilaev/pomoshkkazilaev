@@ -1,0 +1,32 @@
+{
+  "id": "schemes",
+  "name": "Схемы и код",
+  "short": "Готовые схемы и куски кода",
+  "description": "Коллекция готовых схем, алгоритмов и кусков кода на разных языках программирования. От простейших примеров до сложных паттернов.",
+  "languages": [
+    {
+      "id": "python",
+      "name": "Python",
+      "short": "Готовые схемы на Python",
+      "tags": ["backend", "data", "scripting"]
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "short": "Готовые схемы на JavaScript",
+      "tags": ["frontend", "backend", "web"]
+    },
+    {
+      "id": "cpp",
+      "name": "C++",
+      "short": "Готовые схемы на C++",
+      "tags": ["systems", "performance", "games"]
+    },
+    {
+      "id": "java",
+      "name": "Java",
+      "short": "Готовые схемы на Java",
+      "tags": ["backend", "enterprise", "android"]
+    }
+  ]
+}

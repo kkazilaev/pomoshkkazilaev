@@ -1,0 +1,55 @@
+{
+  "title": "Работа с файлами",
+  "items": [
+    {
+      "code": "with open(\"file.txt\", \"r\") as f:\n    content = f.read()\n    print(content)",
+      "desc": "Чтение всего файла",
+      "detail": "with автоматически закрывает файл даже при ошибке. read() читает всё содержимое в строку. Режим 'r' — чтение."
+    },
+    {
+      "code": "with open(\"file.txt\", \"r\") as f:\n    for line in f:\n        print(line.strip())",
+      "desc": "Построчное чтение",
+      "detail": "Файл можно перебирать в цикле for — это эффективно для больших файлов, потому что не грузит всё в память. strip() убирает \\n."
+    },
+    {
+      "code": "with open(\"file.txt\", \"w\") as f:\n    f.write(\"Привет\")",
+      "desc": "Запись в файл",
+      "detail": "Режим 'w' создаёт файл или перезаписывает его. write() принимает только строки. Для чисел используйте str()."
+    },
+    {
+      "code": "with open(\"file.txt\", \"a\") as f:\n    f.write(\"\\nДобавлено\")",
+      "desc": "Добавление в файл",
+      "detail": "Режим 'a' (append) добавляет в конец, не удаляя старое. \\n добавляет перенос строки перед новой записью."
+    },
+    {
+      "code": "import json\n\nwith open(\"data.json\", \"w\") as f:\n    json.dump({\"a\": 1}, f)\n\nwith open(\"data.json\", \"r\") as f:\n    data = json.load(f)\n    print(data)",
+      "desc": "Чтение и запись JSON",
+      "detail": "json.dump() записывает объект в файл. json.load() читает и превращает обратно в словарь. Основной формат обмена данными."
+    },
+    {
+      "code": "import json\njson.dump(data, f, ensure_ascii=False, indent=2)",
+      "desc": "JSON с кириллицей и отступами",
+      "detail": "ensure_ascii=False сохранит русские буквы как есть (без \\uXXXX). indent=2 делает файл читаемым с отступами."
+    },
+    {
+      "code": "import csv\n\nwith open(\"data.csv\", \"w\", newline=\"\") as f:\n    writer = csv.writer(f)\n    writer.writerow([\"a\", \"b\"])\n    writer.writerow([1, 2])",
+      "desc": "Запись CSV",
+      "detail": "csv.writer пишет строки в формате CSV. newline=\"\" важен для Windows — иначе будут двойные переносы."
+    },
+    {
+      "code": "import csv\n\nwith open(\"data.csv\", \"r\") as f:\n    reader = csv.reader(f)\n    for row in reader:\n        print(row)",
+      "desc": "Чтение CSV",
+      "detail": "csv.reader возвращает каждую строку как список. Первая строка часто используется как заголовки."
+    },
+    {
+      "code": "import os\nprint(os.path.exists(\"file.txt\"))\nprint(os.path.getsize(\"file.txt\"))",
+      "desc": "Информация о файле",
+      "detail": "exists() проверяет существование, getsize() возвращает размер в байтах. Модуль os.path — кросс-платформенный."
+    },
+    {
+      "code": "from pathlib import Path\n\npath = Path(\"data\") / \"file.txt\"\npath.write_text(\"Привет\")\nprint(path.read_text())",
+      "desc": "Современная работа с путями",
+      "detail": "pathlib.Path — объектно-ориентированный подход. / соединяет пути. write_text/read_text читают и пишут без открытия файла вручную."
+    }
+  ]
+}
