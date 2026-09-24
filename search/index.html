@@ -38,19 +38,18 @@
         import { esc } from '../languages/render.js';
 
         /* =========================================================
-           ИНДЕКС — собираем все данные один раз
+           ИНДЕКС
            ========================================================= */
 
-        let INDEX = [];         // все записи
+        let INDEX = [];
         let INDEX_READY = false;
-
-        // Каждая запись: { type, section, title, desc, detail, url }
+        let INDEX_COUNTER = 0;
+        let PENDING_QUERY = '';   // запрос, введённый во время индексации
 
         async function loadIndex() {
             const status = document.getElementById('status');
             status.textContent = 'Загрузка данных…';
 
-            // 1. Языки
             const langList = await fetchJson('../data/index.json');
             const items = (langList?.items || langList?.languages || []);
 
@@ -64,10 +63,7 @@
                 }
             }
 
-            // 2. Символы
             tasks.push(loadSymbols());
-
-            // 3. Схемы
             tasks.push(loadSchemes());
 
             await Promise.all(tasks);
@@ -83,7 +79,7 @@
             } catch { return null; }
         }
 
-        // ---- Язык ----
+        /* ---- Языки ---- */
         async function loadLanguage(item) {
             const meta = await fetchJson(`../data/languages/${item.id}.json`);
             if (!meta) return;
@@ -99,13 +95,14 @@
                         title:   entry.code,
                         desc:    entry.desc,
                         detail:  entry.detail,
-                        url:     `../languages/lang.html?id=${item.id}`
+                        url:     `../languages/lang.html?id=${item.id}`,
+                        index:   INDEX_COUNTER++
                     });
                 }
             }
         }
 
-        // ---- Терминология ----
+        /* ---- Терминология ---- */
         async function loadTerms() {
             const meta = await fetchJson('../data/terms/meta.json');
             if (!meta) return;
@@ -121,13 +118,14 @@
                         title:   entry.code,
                         desc:    entry.desc,
                         detail:  entry.detail,
-                        url:     `../languages/terms.html`
+                        url:     `../languages/terms.html`,
+                        index:   INDEX_COUNTER++
                     });
                 }
             }
         }
 
-        // ---- Символы ----
+        /* ---- Символы ---- */
         async function loadSymbols() {
             const meta = await fetchJson('../data/symbols/meta.json');
             if (!meta) return;
@@ -143,13 +141,14 @@
                         title:   entry.code,
                         desc:    entry.desc,
                         detail:  entry.detail,
-                        url:     `../symbols/`
+                        url:     `../symbols/`,
+                        index:   INDEX_COUNTER++
                     });
                 }
             }
         }
 
-        // ---- Схемы ----
+        /* ---- Схемы ---- */
         async function loadSchemes() {
             const meta = await fetchJson('../data/schemes/meta.json');
             if (!meta) return;
@@ -169,7 +168,8 @@
                             title:   entry.desc,
                             desc:    entry.code.split('\n')[0],
                             detail:  entry.detail,
-                            url:     `../schemes/index.html?lang=${lang.id}`
+                            url:     `../schemes/index.html?lang=${lang.id}`,
+                            index:   INDEX_COUNTER++
                         });
                     }
                 }
@@ -197,7 +197,7 @@
 
                     let score = 0;
                     for (const w of words) {
-                        if (!haystack.includes(w)) return null;  // все слова должны быть
+                        if (!haystack.includes(w)) return null;
                         if (item.title.toLowerCase().includes(w)) score += 10;
                         if (item.desc.toLowerCase().includes(w))  score += 5;
                         score += 1;
@@ -234,18 +234,23 @@
                 <section class="section">
                     <h2 class="section__title">${esc(type)} · ${list.length}</h2>
                     <div class="table">
-                        ${list.map(item => `
-                            <a class="row search-row"
-                               href="${item.url}${item.url.includes('?') ? '&' : '?'}hl=${encodeURIComponent(item.title)}&idx=${item.index}">
-                                <div class="row__summary">
-                                    <code class="row__code">${esc(item.title)}</code>
-                                    <span class="row__desc">${esc(item.desc || '')}</span>
-                                </div>
-                                <div class="row__detail">
-                                    <small>${esc(item.section)}</small>
-                                </div>
-                            </a>
-                        `).join('')}
+                        ${list.map(item => {
+                            const sep  = item.url.includes('?') ? '&' : '?';
+                            const href = item.url
+                                + sep + 'hl='  + encodeURIComponent(item.title)
+                                + '&idx=' + item.index;
+                            return `
+                                <a class="row search-row" href="${href}">
+                                    <div class="row__summary">
+                                        <code class="row__code">${esc(item.title)}</code>
+                                        <span class="row__desc">${esc(item.desc || '')}</span>
+                                    </div>
+                                    <div class="row__detail">
+                                        <small>${esc(item.section)}</small>
+                                    </div>
+                                </a>
+                            `;
+                        }).join('')}
                     </div>
                 </section>
             `).join('');
@@ -255,30 +260,51 @@
            ЗАПУСК
            ========================================================= */
 
+        function runSearch(query) {
+            const found = search(query);
+            renderResults(found, query);
+        }
+
         async function init() {
-            await loadIndex();
-
             const input = document.getElementById('q');
-
-            // Живой поиск с небольшой задержкой
             let timer;
+
+            /* Слушатели навешиваем СРАЗУ, до индексации */
+
             input.addEventListener('input', function () {
-                clearTimeout(timer);
                 const q = this.value;
-                timer = setTimeout(() => {
-                    const found = search(q);
-                    renderResults(found, q);
-                }, 150);
+
+                if (!INDEX_READY) {
+                    PENDING_QUERY = q;
+                    return;
+                }
+
+                clearTimeout(timer);
+                timer = setTimeout(() => runSearch(q), 150);
             });
 
-            // Мгновенный поиск по Enter
             input.addEventListener('keydown', function (e) {
                 if (e.key === 'Enter') {
+                    const q = this.value;
+
+                    if (!INDEX_READY) {
+                        PENDING_QUERY = q;
+                        return;
+                    }
+
                     clearTimeout(timer);
-                    const found = search(this.value);
-                    renderResults(found, this.value);
+                    runSearch(q);
                 }
             });
+
+            /* Запускаем индексацию */
+            await loadIndex();
+
+            /* Если пользователь что-то печатал во время индексации — применяем */
+            if (PENDING_QUERY) {
+                runSearch(PENDING_QUERY);
+                PENDING_QUERY = '';
+            }
         }
 
         init();
