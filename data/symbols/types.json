@@ -1,0 +1,21 @@
+{
+  "title": "Символы типов и аннотаций",
+  "items": [
+    { "code": ":", "desc": "Аннотация типа", "detail": "Python: x: int = 5. TypeScript: const x: number = 5." },
+    { "code": "->", "desc": "Тип возврата", "detail": "Python: def f() -> int. C++: указатель p -> attr." },
+    { "code": "[]", "desc": "Массив", "detail": "TypeScript: number[] — массив чисел. Python: list[int]." },
+    { "code": "?", "desc": "Опциональный тип", "detail": "TypeScript: string | undefined. Kotlin: String?." },
+    { "code": "|", "desc": "Объединение типов", "detail": "TypeScript: string | number. Python 3.10+: str | int." },
+    { "code": "&", "desc": "Пересечение типов", "detail": "TypeScript: A & B — объект с полями обоих." },
+    { "code": "<>", "desc": "Дженерики", "detail": "Java/C++/TS: List<int>, Array<string>. Python: list[int]." },
+    { "code": "*", "desc": "Произвольное число аргументов", "detail": "Python: *args, **kwargs. TypeScript: ...args." },
+    { "code": "**", "desc": "Именованные аргументы", "detail": "Python: def f(**kwargs)." },
+    { "code": "|", "desc": "Литеральные типы", "detail": "TypeScript: 'a' | 'b' | 'c'." },
+    { "code": "typeof", "desc": "Оператор типа", "detail": "TypeScript: typeof x. JS: typeof 'str' → 'string'." },
+    { "code": "Any", "desc": "Любой тип", "detail": "Python typing.Any. TS: any. Отключает проверку." },
+    { "code": "Optional", "desc": "Может быть None", "detail": "Python: Optional[int] = int | None. TS: ?." },
+    { "code": "Union", "desc": "Один из типов", "detail": "Python: Union[int, str]. TS: |." },
+    { "code": "Literal", "desc": "Литерал", "detail": "Python: Literal['a', 'b']. Ограничение конкретными значениями." },
+    { "code": "Callable", "desc": "Функция", "detail": "Python: Callable[[int], str] — функция из int в str." }
+  ]
+}
