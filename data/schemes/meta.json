@@ -13,19 +13,19 @@
     {
       "id": "javascript",
       "name": "JavaScript",
-      "short": "Готовые схемы на JavaScript",
+      "short": "Готовые схемы на JavaScript (В разработке)",
       "tags": ["frontend", "backend", "web"]
     },
     {
       "id": "cpp",
       "name": "C++",
-      "short": "Готовые схемы на C++",
+      "short": "Готовые схемы на C++ (В разработке)",
       "tags": ["systems", "performance", "games"]
     },
     {
       "id": "java",
       "name": "Java",
-      "short": "Готовые схемы на Java",
+      "short": "Готовые схемы на Java (В разработке)",
       "tags": ["backend", "enterprise", "android"]
     }
   ]
