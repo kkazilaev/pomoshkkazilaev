@@ -50,3 +50,21 @@ export async function loadModules(baseUrl, moduleNames) {
 export function getId() {
     return new URLSearchParams(window.location.search).get('id');
 }
+
+// Подсветка активного пункта меню
+export function markActiveNav() {
+    const path = window.location.pathname;
+    const links = document.querySelectorAll('.nav__menu a');
+
+    links.forEach(link => {
+        const href = link.getAttribute('href') || '';
+        const clean = href
+            .replace(/^\.\.\//, '')
+            .replace(/^\.\//, '')
+            .replace(/\/$/, '');
+
+        if (clean && path.includes(clean)) {
+            link.classList.add('is-active');
+        }
+    });
+}
