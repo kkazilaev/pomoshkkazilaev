@@ -224,7 +224,6 @@
                 return;
             }
 
-            // Группируем по типу
             const groups = {};
             for (const item of items) {
                 if (!groups[item.type]) groups[item.type] = [];
@@ -236,7 +235,8 @@
                     <h2 class="section__title">${esc(type)} · ${list.length}</h2>
                     <div class="table">
                         ${list.map(item => `
-                            <a class="row search-row" href="${item.url}">
+                            <a class="row search-row"
+                               href="${item.url}${item.url.includes('?') ? '&' : '?'}hl=${encodeURIComponent(item.title)}&idx=${item.index}">
                                 <div class="row__summary">
                                     <code class="row__code">${esc(item.title)}</code>
                                     <span class="row__desc">${esc(item.desc || '')}</span>
