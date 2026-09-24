@@ -681,3 +681,52 @@ a {
 .row[open] .row__code {
     font-size: 0.85rem;
 }
+
+/* =====================
+   Глобальный поиск
+   ===================== */
+.search-status {
+    color: var(--text-mute);
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 2rem;
+    min-height: 1.2rem;
+}
+
+.search-row {
+    display: block;
+    border-bottom: 1px solid var(--border);
+    padding: 0.85rem 0;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s ease;
+}
+
+.search-row:hover {
+    background: rgba(139, 92, 246, 0.05);
+}
+
+.search-row .row__summary {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 0;
+    cursor: pointer;
+}
+
+.search-row .row__detail {
+    padding: 0.3rem 0 0 0;
+    margin-left: 0;
+    color: var(--text-mute);
+    font-size: 0.78rem;
+}
+
+.search-row small {
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Убираем маркер details, потому что это ссылка */
+.search-row .row__summary::marker {
+    content: "";
+}
