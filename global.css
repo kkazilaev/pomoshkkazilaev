@@ -640,3 +640,17 @@ a {
     transition: background-color 5000s ease-in-out 0s;
     caret-color: var(--text);
 }
+
+/* =====================
+   Ссылка в подвале
+   ===================== */
+.footer a {
+    color: var(--text-dim);
+    border-bottom: 1px solid transparent;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.footer a:hover {
+    color: var(--violet);
+    border-bottom-color: var(--violet-dim);
+}
