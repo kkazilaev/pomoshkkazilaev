@@ -85,6 +85,11 @@
         }
 
         load();
+
+        renderSections(document.getElementById('sections'), sections);
+
+        // Подсветить объект, если пришли из поиска
+        highlightFromUrl();
     </script>
 
 </body>

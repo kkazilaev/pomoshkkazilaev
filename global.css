@@ -730,3 +730,26 @@ a {
 .search-row .row__summary::marker {
     content: "";
 }
+
+/* =====================
+   Подсветка объекта после перехода из поиска
+   ===================== */
+.row__code.is-highlighted {
+    background: var(--violet) !important;
+    color: #fff !important;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.25);
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    animation: pulseHighlight 2.5s ease;
+}
+
+@keyframes pulseHighlight {
+    0%   { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7); }
+    50%  { box-shadow: 0 0 0 8px rgba(139, 92, 246, 0.2); }
+    100% { box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.25); }
+}
+
+/* Если объект внутри раскрытого details — лёгкая подсветка всей строки */
+details.row[open] .row__code.is-highlighted {
+    background: var(--violet) !important;
+    color: #fff !important;
+}

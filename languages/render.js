@@ -68,3 +68,71 @@ export function markActiveNav() {
         }
     });
 }
+
+/* =========================================================
+   Подсветка и прокрутка к элементу после перехода из поиска
+   ========================================================= */
+export function highlightFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const hl     = params.get('hl');
+    const idx    = params.get('idx');
+
+    if (!hl) return;
+
+    // Ждём, пока renderSections отрисует DOM
+    // ищем по всем .row__code с точным совпадением текста
+    const tryHighlight = (attempt = 0) => {
+        const codes = document.querySelectorAll('.row__code');
+        let target  = null;
+
+        if (idx != null) {
+            // По индексу — точное попадание
+            const num = parseInt(idx, 10);
+            if (!isNaN(num) && codes[num]) {
+                target = codes[num];
+            }
+        }
+
+        // Fallback — ищем по тексту
+        if (!target) {
+            for (const c of codes) {
+                if (c.textContent.trim() === hl.trim()) {
+                    target = c;
+                    break;
+                }
+            }
+        }
+
+        // Если не нашли и попыток < 20 — пробуем снова через 100 мс
+        if (!target) {
+            if (attempt < 20) {
+                setTimeout(() => tryHighlight(attempt + 1), 100);
+            }
+            return;
+        }
+
+        // Нашли! Раскрываем родительский <details>, если есть
+        const details = target.closest('details');
+        if (details) details.open = true;
+
+        // Прокручиваем к элементу
+        setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+
+        // Подсвечиваем
+        target.classList.add('is-highlighted');
+        setTimeout(() => {
+            target.classList.remove('is-highlighted');
+        }, 2500);
+
+        // ─── ЧИСТИМ URL ───────────────────────────────────────────
+        const url = new URL(window.location.href);
+        url.searchParams.delete('hl');
+        url.searchParams.delete('idx');
+        window.history.replaceState({}, '', url.pathname + url.search + url.hash);
+        // ──────────────────────────────────────────────────────────
+    };
+
+    tryHighlight();
+}

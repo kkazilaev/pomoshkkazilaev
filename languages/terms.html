@@ -30,7 +30,7 @@
     </footer>
 
     <script type="module">
-        import { esc, renderSections, loadModules, getId, markActiveNav } from './render.js';
+        import { esc, renderSections, loadModules, getId, markActiveNav, highlightFromUrl } from '../languages/render.js';
 
         markActiveNav();
 
@@ -88,6 +88,11 @@
         }
 
         load();
+
+        renderSections(document.getElementById('sections'), sections);
+
+        // Подсветить объект, если пришли из поиска
+        highlightFromUrl();
     </script>
 
 </body>
