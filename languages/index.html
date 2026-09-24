@@ -21,22 +21,17 @@
     <main class="page">
         <h1 class="page__title">База знаний</h1>
         <p class="page__subtitle">Языки программирования и словарь терминологии.</p>
-
         <div id="list" class="cards"></div>
     </main>
 
     <footer class="footer">
-    <p>© 2026 KKazilaev_ · <a href="https://github.com/kkazilaev/pomoshkkazilaev" target="_blank" rel="noopener">GitHub</a></p>
+        <p>© 2026 KKazilaev_ · <a href="https://github.com/kkazilaev/pomoshkkazilaev" target="_blank" rel="noopener">GitHub</a></p>
     </footer>
 
-    <script>
-        function esc(str) {
-            if (str == null) return '';
-            return String(str)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;');
-        }
+    <script type="module">
+        import { esc, markActiveNav } from './render.js';
+
+        markActiveNav();
 
         function cardUrl(item) {
             if (item.type === 'terms') return './terms.html';
@@ -49,7 +44,6 @@
             try {
                 const res  = await fetch('../data/index.json');
                 const data = await res.json();
-
                 const items = data.items || data.languages || [];
 
                 if (!items.length) {

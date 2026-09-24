@@ -30,7 +30,9 @@
     </footer>
 
     <script type="module">
-        import { esc, renderSections, loadModules, getId } from './render.js';
+        import { esc, renderSections, loadModules, getId, markActiveNav } from './render.js';
+
+        markActiveNav();
 
         async function load() {
             const id      = getId();
