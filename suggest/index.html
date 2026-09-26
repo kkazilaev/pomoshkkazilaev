@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KK ArsDev — Справочник</title>
+    <title>Предложка — KK ArsDev</title>
     <link rel="stylesheet" href="../global.css">
 </head>
 <body>
@@ -16,18 +16,25 @@
             <a href="../symbols/">Символы</a>
             <a href="../schemes/">Схемы</a>
             <a href="../search/">Поиск</a>
-            <a href="../suggest/">Предложка</a>
+            <a href="../suggest/" class="is-active">Предложка</a>
         </nav>
     </header>
 
-    <!-- Главный блок -->
-    <main class="hero">
-        <h1 class="hero__title">Привет, я <span>KKazilaev_</span></h1>
-        <p class="hero__subtitle">
-            Справочник по языкам программирования, символам и логическим схемам.
-            Всё структурировано, легко и без лишнего.
+    <!-- Контент -->
+    <main class="suggest">
+        <h1 class="suggest__title">Предложка</h1>
+        <p class="suggest__text">
+            Есть идея, нашёл ошибку или хочешь добавить материал?
+            Отсканируй QR-код и напиши в Telegram.
         </p>
-        <a href="../languages/" class="hero__btn">Начать изучение →</a>
+
+        <div class="suggest__qr">
+            <img src="qr.png" alt="QR-код Telegram-канала" width="220" height="220">
+        </div>
+
+        <p class="suggest__hint">
+            @kkarsdev
+        </p>
     </main>
 
     <!-- Подвал -->
